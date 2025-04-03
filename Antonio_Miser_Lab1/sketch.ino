@@ -38,10 +38,9 @@ void loop() {
         // Upravljanje LED1 i buzzerom ako je tipkalo 1 pritisnuto
         if (button1Pressed) {
             digitalWrite(led1, HIGH);
-            digitalWrite(led2, HIGH);
             tone(buzzer, buzzerFrequency); // Postavljanje frekvencije buzzera
         } else {
-            digitalWrite(led1, LOW);
+           // digitalWrite(led1, LOW);
             noTone(buzzer);
         }
 
@@ -104,8 +103,9 @@ void Timer1Setup() {
 // ISR prekidna rutina za Timer1
 ISR(TIMER1_COMPA_vect) {
     static int step = 100;
+     toggleLED(led2);
     if (!button1Pressed) {
-        toggleLED(led2); // Treptanje LED2 ako tipkalo 1 nije pritisnuto
+        toggleLED(led1); // Treptanje LED1 ako tipkalo 1 nije pritisnuto
     } else {
         buzzerFrequency += step; // Mijenjanje frekvencije buzzera
         if (buzzerFrequency >= 1500 || buzzerFrequency <= 500) {
