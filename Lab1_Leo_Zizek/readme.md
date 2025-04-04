@@ -1,4 +1,5 @@
-Opis sustava
+###Zadatak 1 Upravljanje prekidima
+## 1. Opis sustava
 
 Ovaj projekt implementira sustav upravljanja LED diodama i očitavanja senzorskih podataka koristeći Arduino mikrokontroler. Sustav koristi različite prekide (interrupts) kako bi omogućio brze reakcije na vanjske događaje, uključujući pritisak tipkala, detekciju svjetla, vremenske intervale i završetak ADC konverzije.
 
