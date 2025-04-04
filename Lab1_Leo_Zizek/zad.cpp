@@ -48,7 +48,7 @@ void setup()
     attachInterrupt(digitalPinToInterrupt(2), ISR_Button, FALLING);   // Najviši
     attachInterrupt(digitalPinToInterrupt(3), photoCellISR, FALLING); // Srednji
 
-    // Konfiguracija Timer1 za prekid svakih 500 ms
+    // Konfiguracija Timer1 za prekid svakih 1s
     cli(); // Isključeni globalni prekidi
     TCCR1A = 0;
     TCCR1B = (1 << WGM12) | (1 << CS12) | (1 << CS10); // CTC mod, prescaler 1024
@@ -93,7 +93,7 @@ void loop()
     if (digitalRead(8) == HIGH)
     {
         if (currentMillis - previousMillis >= INTERVAL)
-        {                                   // Ako je prošlo 1 sekunda
+        {                                   // Ako je prošlo 2 sekunde
             previousMillis = currentMillis; // Ažuriraj vrijeme
             digitalWrite(8, LOW);
         }
