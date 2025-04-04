@@ -21,8 +21,7 @@ Ovaj projekt implementira sustav upravljanja LED diodama i očitavanja senzorski
 |Logički analizator|1| 13,2,3|
 
 ## 3. Izvršavanje prioriteta prekida
- INT0 > INT1 >Timer1 > Potenciometar
- INT0 Ima najviši prioritet izvršavanja nakon 
+    # INT0 > INT1 >Timer1 > Potenciometar
     
 ## Funkcionalni zahtjevi 
 | ID | Opis zahtjeva |
