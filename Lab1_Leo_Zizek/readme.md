@@ -1,4 +1,4 @@
-###Zadatak 1 Upravljanje prekidima
+##Zadatak 1 Upravljanje prekidima
 ## 1. Opis sustava
 
 Ovaj projekt implementira sustav upravljanja LED diodama i očitavanja senzorskih podataka koristeći Arduino mikrokontroler. Sustav koristi različite prekide (interrupts) kako bi omogućio brze reakcije na vanjske događaje, uključujući pritisak tipkala, detekciju svjetla, vremenske intervale i završetak ADC konverzije.
@@ -14,47 +14,11 @@ Detekcija svjetla pomoću fotosenzora – Kada fotosenzor detektira svjetlo, LED
 Gašenje LED diode nakon određenog vremena – Ako je LED na pinu 8 aktivirana, ona se automatski gasi nakon 2 sekunde.
 
 Očitavanje analognih senzora – ADC prekid omogućava asinkrono očitavanje senzorskih podataka.
-
-Funkcionalni zahtjevi
-
-ID
-
-Opis zahtjeva
-
-Prioritet
-
-FR1
-
-Sustav mora reagirati na pritisak tipkala i promijeniti stanje LED diode.
-
-Visok
-
-FR2
-
-Timer mora generirati prekid svakih 500 ms za bljeskanje LED diode.
-
-Srednji
-
-FR3
-
-Sustav mora detektirati svjetlo putem fotosenzora i upaliti LED diodu.
-
-Visok
-
-FR4
-
-LED dioda povezana s fotosenzorom mora se automatski ugasiti nakon 2 sekunde.
-
-Srednji
-
-FR5
-
-Sustav mora omogućiti očitavanje analognih senzora pomoću ADC prekida.
-
-Visok
-
-FR6
-
-Sustav mora ispisivati podatke na serijski monitor.
-
-Nizak
+## Funkcionalni zahtjevi 
+| ID | Opis zahtjeva |
+|---|-------------|
+| FR1 | Sustav mora reagirati na pritisak tipkala i promijeniti stanje LED diode.|
+| FR2 | Timer mora generirati prekid svakih 500 ms za bljeskanje LED diode.|
+| FR3 | Sustav mora detektirati svjetlo putem fotosenzora i upaliti LED diodu.|
+| FR4 | LED dioda povezana s fotosenzorom mora se automatski ugasiti nakon 2 sekunde. |
+| FR5 | Sustav mora omogućiti očitavanje analognih senzora pomoću ADC prekida. |
