@@ -1,5 +1,7 @@
 # Zadatak 1 Upravljanje prekidima
 
+[Poveznica na wokwi projekt](https://wokwi.com/projects/427037599729002497)
+
 ## 1. Opis sustava
 
 Ovaj projekt implementira sustav upravljanja LED diodama i očitavanja senzorskih podataka koristeći Arduino mikrokontroler. Sustav koristi različite prekide (interrupts) kako bi omogućio brze reakcije na vanjske događaje, uključujući pritisak tipkala, detekciju svjetla, vremenske intervale i završetak ADC konverzije. Sve je izvršeno na Wokwi simulacijskoj platformi.
