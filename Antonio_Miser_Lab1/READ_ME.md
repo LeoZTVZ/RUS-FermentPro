@@ -1,6 +1,6 @@
 /***************************************************************
  *  
- *  NAZIV DATOTEKE: buzzer_led_timer.ino
+ *  LAB1
  *  
  *  OPIS:
  *  Arduino primjer koji demonstrira korištenje vanjskih prekida 
