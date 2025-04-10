@@ -38,7 +38,7 @@ jobs:
       - name: Generate Doxygen for Lab1
         run: |
           doxygen Lab1_Leo_Zizek/Doxyfile
-          mkdir -p deploy/Lab1
+          mkdir -p deploy/Lab1_Leo_Zizek
           cp -r Lab1_Leo_Zizek/docs/html/* deploy/Lab1_Leo_Zizek/
 
       - name: Generate Doxygen for Lab2
