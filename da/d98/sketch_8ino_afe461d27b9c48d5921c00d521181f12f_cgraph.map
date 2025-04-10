@@ -1,7 +1,0 @@
-<map id="loop" name="loop">
-<area shape="rect" id="Node000001" title="Glavna petlja programa." alt="" coords="5,5,56,31"/>
-<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#ae5b5093bef9a291e112c49e9aae5feec" title="Ulazi u način rada spavanja (SLEEP_MODE_PWR_DOWN)." alt="" coords="104,5,196,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,15,90,15,90,21,56,21"/>
-<area shape="rect" id="Node000003" href="$da/d98/sketch_8ino.html#a476ccd62c199f330f95bce19c498e3e9" title="Postavlja Watchdog timer za buđenje iz sleep moda." alt="" coords="244,5,367,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,15,230,15,230,21,196,21"/>
-</map>
