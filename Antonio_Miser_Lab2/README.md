@@ -1,4 +1,4 @@
-# 🔁 Prikaz Upravljanja potrošnjom energije i sleep mode
+# 🔁 Prikaz upravljanja potrošnjom energije i sleep mode
 
 Projekt koji demonstrira korištenje spavanja na **Arduino Uno** i buđenje pomoću vanjskog prekida (tipkalo) i **Watchdog Timera**. LED dioda blinka tijekom 5 sekundi, nakon čega Arduino prelazi u **sleep mode** kako bi se uštedjela energija. Mikrokontroler se može probuditi pomoću vanjskog prekida (tipkalo) ili pomoću **Watchdog timera**.
 
