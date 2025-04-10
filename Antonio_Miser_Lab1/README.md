@@ -111,7 +111,5 @@ Ovaj projekt prikazuje kako se mogu koristiti vanjski prekidi i interni tajmeri 
 
 Projekt se može proširiti dodavanjem senzora, LCD ekrana, ili povezivanjem s mobilnom aplikacijom za daljinsko upravljanje.
 
----
 
-📌 *Za dodatnu funkcionalnost može se dodati i OLED ekran za prikaz statusa sustava u stvarnom vremenu.*
 
