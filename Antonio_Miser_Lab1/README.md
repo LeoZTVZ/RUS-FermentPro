@@ -17,7 +17,7 @@ Arduino Uno projekt koji demonstrira upravljanje LED-icama i piezo buzzerom kori
 
 ## 1. Opis zadatka
 
-Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer, s fokusom na upotrebu prekida i frekvencijsku modulaciju. Projekt koristi:
+Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer, s fokusom na upotrebu prekida. Projekt koristi:
 
 - 2 tipkala za generiranje prekida (INT0, INT1)
 - 3 LED-ice (LED1, LED2, LED3)
