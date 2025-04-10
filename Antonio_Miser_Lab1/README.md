@@ -1,7 +1,7 @@
 # 🔁 Sustav za upravljanje LED-icama i buzzerom pomoću prekida
 
 Arduino Uno projekt koji demonstrira upravljanje LED-icama i piezo buzzerom koristeći prekide s prioritetima i timerom.
-
+[Poveznica na wokwi projekt](https://wokwi.com/projects/427038709644762113)
 ---
 
 ## 📖 Sadržaj
