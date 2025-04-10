@@ -52,7 +52,7 @@ Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer
 
 ## 3. Slika spojeva
 
-
+![Image](https://github.com/user-attachments/assets/b60bfc0c-c2fb-49df-8ba4-6c54bba5f5d3)
 ---
 
 ## 4. Opis rješenja
