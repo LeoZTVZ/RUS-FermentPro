@@ -47,8 +47,7 @@ Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer
 | LED2 (žuta)      | 1        | 10                          |
 | LED3 (zelena)    | 1        | 8                           |
 | Piezo buzzer     | 1        | 11                          |
-| Otpornici 220Ω   | 3        | -                           |
-| Breadboard       | 1        | -                           |
+| Otpornici 200Ω   | 3        | -                           |
 
 
 ---
