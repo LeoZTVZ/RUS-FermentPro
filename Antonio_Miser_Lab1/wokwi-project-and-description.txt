@@ -2,14 +2,3 @@ Downloaded from https://wokwi.com/projects/427038709644762113
 
 Simulate this project on https://wokwi.com
 
-
-U ovaj Arduino projekt je implementirana funkcionalnost za upravljanje s LED diodama, buzzerom i dva tipkala. Postavlja se 3 prioriteta i prekida za upravljanje tim uređajima, te uključuje način za periodičnu promjenu stanja. 
-
-Najveći prioritet:
--	Prekid od Timer1 (ISR za TIMER1_COMPA_vect) ima najveći prioritet jer mijenja frekvenciju buzzera i trepće LED2.
-
-Srednji prioritet:
--	Prekid od button1ISR() (tipkalo 1) ima srednji prioritet. Ako je tipkalo 1 pritisnuto, LED1 i LED2 se upale i buzzer se aktivira sa promjenjivom frekvencijom.
-
-Niži prioritet:
--	Prekid od button2ISR() (tipkalo 2) ima niži prioritet. Ako je pritisnuto tipkalo 2, a tipkalo 1 nije pritisnuto, tada LED3 postaje aktivna.
