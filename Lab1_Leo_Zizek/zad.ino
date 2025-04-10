@@ -1,7 +1,7 @@
 /**
  * @file zad.ino
  * @brief Upravljanje LED diodama pomoću prekida i senzora na Arduino UNO.
- * @date 10. Travnja 2025.
+ * @date 10. Travnja 2025
  * Ovaj projekt koristi vanjske i interne prekide kako bi se upravljalo
  * LED diodama i očitavanjima s fotosenzora i potenciometra.
  *
