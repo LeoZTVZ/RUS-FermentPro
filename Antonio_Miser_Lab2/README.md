@@ -36,6 +36,7 @@ Cilj ovog projekta je pokazati kako se koristi **sleep mode** za uštedu energij
 | Breadboard      | 1        | -                  |
 
 ## 3. Slika spojeva
+![Image](https://github.com/user-attachments/assets/ccdb0726-b31c-4b04-bcad-2766b9d433c5)
 
 
 ## 4. Opis rješenja
