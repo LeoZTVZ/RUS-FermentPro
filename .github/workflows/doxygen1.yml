@@ -35,14 +35,22 @@ jobs:
       - name: Install Graphviz
         run: sudo apt-get install graphviz
 
-      - name: Generate Documentation
+      - name: Generate Doxygen for Lab1
         run: |
-          cd Lab1_Leo_Zizek  # Change to the directory containing the Doxyfile
-          doxygen Doxyfile || { echo "Doxygen failed"; exit 1; }  # Run Doxygen, exit if it fails
-          if [ ! -d "docs/html" ]; then echo "Error: docs/html not found!"; exit 1; fi  # Check if the HTML output directory exists
+          doxygen Lab1_Leo_Zizek/Doxyfile
+          mkdir -p deploy/Lab1
+          cp -r Lab1_Leo_Zizek/docs/html/* deploy/Lab1_Leo_Zizek/
 
-      - name: Deploy Documentation to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3  # Use the 'actions-gh-pages' action to deploy documentation
+      - name: Generate Doxygen for Lab2
+        run: |
+          doxygen Antonio_Miser_Lab1/Doxyfile
+          mkdir -p deploy/Antonio_Miser_Lab1
+          cp -r Antonio_Miser_Lab1/docs/html/* deploy/Antonio_Miser_Lab1/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub token for authentication
-          publish_dir: Lab1_Leo_Zizek/docs/html  # Directory where the HTML documentation is generated
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: gh-pages
+          force_orphan: true  # clean deploy
