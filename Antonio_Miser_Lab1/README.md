@@ -43,8 +43,8 @@ Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer
 | Arduino Uno      | 1        | -                           |
 | Tipkalo 1        | 1        | 2 (INT0)                    |
 | Tipkalo 2        | 1        | 3 (INT1)                    |
-| LED1 (crvena)    | 1        | 9                           |
-| LED2 (žuta)      | 1        | 10                          |
+| LED1 (plava)     | 1        | 10                          |
+| LED2 (žuta)      | 1        | 9                           |
 | LED3 (zelena)    | 1        | 8                           |
 | Piezo buzzer     | 1        | 11                          |
 | Otpornici 200Ω   | 3        | -                           |
