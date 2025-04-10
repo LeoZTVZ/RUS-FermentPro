@@ -1,5 +1,5 @@
 /**
- * @file led_control_interrupts.ino
+ * @file zad.ino
  * @brief Upravljanje LED diodama pomoću prekida i senzora na Arduino UNO.
  *
  * Ovaj projekt koristi vanjske i interne prekide kako bi se upravljalo
