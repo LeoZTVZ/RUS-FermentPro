@@ -35,8 +35,7 @@ Cilj ovog projekta je pokazati kako se koristi **sleep mode** za uštedu energij
 | Arduino Uno     | 1        | -                  |
 | LED dioda       | 1        | 13                 |
 | Tipkalo         | 1        | 2 (INT0)           |
-| Otpornici 220Ω  | 1        | -                  |
-| Breadboard      | 1        | -                  |
+| Otpornici 200Ω  | 1        | -                  |
 
 ## 3. Slika spojeva
 ![Image](https://github.com/user-attachments/assets/ccdb0726-b31c-4b04-bcad-2766b9d433c5)
