@@ -2,6 +2,9 @@
 
 Projekt koji demonstrira korištenje spavanja na **Arduino Uno** i buđenje pomoću vanjskog prekida (tipkalo) i **Watchdog Timera**. LED dioda blinka tijekom 5 sekundi, nakon čega Arduino prelazi u **sleep mode** kako bi se uštedjela energija. Mikrokontroler se može probuditi pomoću vanjskog prekida (tipkalo) ili pomoću **Watchdog timera**.
 
+[Poveznica na wokwi projekt](https://wokwi.com/projects/427691329617498113)
+---
+
 ## 📖 Sadržaj
 - [Opis zadatka](#1-opis-zadatka)
 - [Hardverske komponente](#2-hardverske-komponente)
