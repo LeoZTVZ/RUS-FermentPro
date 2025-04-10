@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['isr_0',['ISR',['../da/d98/sketch_8ino.html#ad39420cdd896dd12c68e36313139d0a5',1,'sketch.ino']]]
+  ['ledstate_0',['ledState',['../d6/d3b/zad_8ino.html#a721652ea8495ead65724ceff69063b9a',1,'zad.ino']]],
+  ['lightdetected_1',['lightDetected',['../d6/d3b/zad_8ino.html#a68cc068e4925dc3bf3f70a7bd9e11420',1,'zad.ino']]],
+  ['loop_2',['loop',['../d6/d3b/zad_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'zad.ino']]]
 ];
