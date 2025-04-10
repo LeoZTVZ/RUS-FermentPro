@@ -1,6 +1,6 @@
 # Zadatak 2: Upravljanje potrošnjom energije pomoću sleep moda
 
-[Poveznica na Wokwi projekt](https://wokwi.com/projects/427037599729002497)
+[Poveznica na Wokwi projekt](https://wokwi.com/projects/427765811996353537)
 
 ## 1. Opis sustava
 
