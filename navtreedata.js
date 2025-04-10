@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "RUS_Lab2_sleep", "index.html", [
+  [ "RUS_Lab1_prekid", "index.html", [
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
