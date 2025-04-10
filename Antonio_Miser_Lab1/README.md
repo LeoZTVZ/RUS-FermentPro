@@ -1,91 +1,114 @@
-/***************************************************************
- *  
- *  LAB1
- *  
- *  OPIS:
- *  Arduino primjer koji demonstrira korištenje vanjskih prekida 
- *  i Timer1 za upravljanje LED-icama i zvučnikom (buzzerom).
- *  
- *  Program koristi dva gumba s prekidima za upravljanje LED-icama 
- *  i zvučnikom. Timer1 generira periodične prekide za bljeskanje LED-ice 
- *  i promjenu frekvencije zvuka na zvučniku.
- *  
- *  Gumb 1 (pin 2): Uključuje/isključuje led1 i počinje mijenjati 
- *  frekvenciju zvučnika na pinu 11.
- *  
- *  Gumb 2 (pin 3): Upravlja s led3, ali samo kada gumb 1 nije aktivan.
- *  
- *  led2 (pin 10): Bljeska svakih 500 ms preko Timer1.
- *  led1 (pin 9): Uključuje se na pritisak gumba 1, bljeska kada nije aktivan.
- *  Buzzer (pin 11): Reproducira tonove promjenjive frekvencije dok je gumb 1 aktivan.
- *  
- ***************************************************************/
+# 🔁 Sustav za upravljanje LED-icama i buzzerom pomoću prekida
+
+Arduino Uno projekt koji demonstrira upravljanje LED-icama i piezo buzzerom koristeći prekide s prioritetima i timerom.
+
+[Poveznica na wokwi projekt](https://wokwi.com/projects/427038709644762113)
+---
+
+## 📖 Sadržaj
+
+- [Opis zadatka](#1-opis-zadatka)  
+- [Hardverske komponente](#2-hardverske-komponente)  
+- [Slika spojeva](#3-slika-spojeva)  
+- [Opis rješenja](#4-opis-rješenja)  
+    - [Timer Prekid](#41-timer-prekid)
+    - [Tablica funkcionalnosti](#42-tablica-funkcionalnosti)
+- [Zaključak](#5-zaključak)  
+
+---
+
+## 1. Opis zadatka
+
+Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer, s fokusom na upotrebu prekida. Projekt koristi:
+
+- 2 tipkala za generiranje prekida (INT0, INT1)
+- 3 LED-ice (LED1, LED2, LED3)
+- Piezo buzzer s promjenjivom frekvencijom
+- Timer1 koji stvara prekid svakih 500 ms
+- Arduino Uno mikrokontroler
+
+### Ključna svojstva:
+
+- Tipkala generiraju prekide i mijenjaju stanje LED-ica i buzzera
+- Timer1 kontrolira treptanje LED-ice i modulaciju frekvencije buzzera
+- Buzzer mijenja frekvenciju u rasponu od 500 Hz do 1500 Hz
+- Prekidi se debouncaju i ispisuju poruke putem serijskog monitora
+
+---
+
+## 2. Hardverske komponente
+
+| Komponenta       | Količina | Pin na Arduino Uno         |
+|------------------|----------|-----------------------------|
+| Arduino Uno      | 1        | -                           |
+| Tipkalo 1        | 1        | 2 (INT0)                    |
+| Tipkalo 2        | 1        | 3 (INT1)                    |
+| LED1 (plava)     | 1        | 10                          |
+| LED2 (žuta)      | 1        | 9                           |
+| LED3 (zelena)    | 1        | 8                           |
+| Piezo buzzer     | 1        | 11                          |
+| Otpornici 200Ω   | 3        | -                           |
 
 
-/***************************************************************
- *  
- *  📊 PREGLED KOMPONENTI (TEKSTUALNA SHEMA)
- *  
- *  Komponenta     | Arduino pin | Smjer   | Opis
- *  -------------- | ------------|---------|------------------------------------------
- *  LED1           | 9           | Izlaz   | Kontrolira se gumbom 1 (bljeskanje / ON/OFF)
- *  LED2           | 10          | Izlaz   | Bljeska svakih 500 ms putem Timer1
- *  LED3           | 8           | Izlaz   | Kontrolira se gumbom 2
- *  Zvučnik        | 11          | Izlaz   | Reproducira ton promjenjive frekvencije
- *  Gumb 1         | 2 (INT0)    | Ulaz    | Prekid visoke prioritete
- *  Gumb 2         | 3 (INT1)    | Ulaz    | Prekid niskog prioriteta
- *  
- ***************************************************************/
+---
+
+## 3. Slika spojeva
+
+![Image](https://github.com/user-attachments/assets/da3097e8-c63c-4077-b859-45b4b2a5f634)
+---
+
+## 4. Opis rješenja
+
+Projekt koristi dvije vanjske tipke povezane na prekide (INT0 i INT1) i Timer1 za automatske radnje svake 0.5 sekunde.
+
+### Funkcionalnost:
+
+- **Tipkalo 1 (INT0)**:
+  - Pali LED1
+  - Aktivira buzzer s frekvencijom od 500 Hz koja raste do 1500 Hz, zatim pada
+  - Sve dok je tipkalo pritisnuto, buzzer svira i LED1 ostaje upaljena
+
+- **Tipkalo 2 (INT1)**:
+  - Ako tipkalo 1 nije aktivno, pali LED3
+
+- **Timer1 (svakih 500ms)**:
+  - Trepće LED2
+  - Ako tipkalo 1 nije aktivno, LED1 također trepće
+  - Ako je tipkalo 1 aktivno, frekvencija buzzera se mijenja u koracima od 100 Hz
+
+---
+
+## 4.1. Timer prekid
+
+Timer1 je konfiguriran za CTC mod, prescaler 1024. U OCR1A se postavlja vrijednost 7812 za generiranje prekida svakih 500 ms.
+
+---
+
+## 4.2. Tablica funkcionalnosti
+
+| ID   | Opis funkcionalnosti |
+|------|----------------------|
+| FR-1 | Upravljanje LED-icama: LED1 (tipkalo 1), LED2 (timer), LED3 (tipkalo 2) |
+| FR-2 | Upravljanje buzzerom s promjenjivom frekvencijom |
+| FR-3 | Detekcija pritiska na tipkala (INT0, INT1) i promjena stanja |
+| FR-4 | Debounce mehanizam za tipkala |
+| FR-5 | Timer1 generira prekid svake 0.5 sekunde |
+| FR-6 | Serijska komunikacija prikazuje stanja prekida |
+| FR-7 | LED2 uvijek trepće kao signal rada sustava |
+| FR-8 | Promjena frekvencije buzzera između 500 Hz i 1500 Hz u koracima od 100 Hz |
+
+---
+
+## 5. Zaključak
+
+Ovaj projekt prikazuje kako se mogu koristiti vanjski prekidi i interni tajmeri za upravljanje kompleksnijim sustavima u stvarnom vremenu. Na ovaj način se postiže:
+
+- Neovisno upravljanje komponentama
+- Pravovremeni odgovor na korisničke akcije
+- Modularnost i skalabilnost sustava
+- Praktična primjena teorije upravljanja prekidima
+
+Projekt se može proširiti dodavanjem senzora, LCD ekrana, ili povezivanjem s mobilnom aplikacijom za daljinsko upravljanje.
 
 
-/**
- * @brief Postavlja načine rada pinova, prekide i Timer1.
- */
-void setup();
 
-/**
- * @brief Glavna petlja programa.
- * 
- * Upravljanje LED-icama i zvučnikom ovisno o stanju gumbi.
- */
-void loop();
-
-/**
- * @brief ISR za gumb 1 (prekid visokog prioriteta).
- * 
- * Prebacuje stanje varijable button1Pressed s debounce logikom.
- */
-void button1ISR();
-
-/**
- * @brief ISR za gumb 2 (prekid niskog prioriteta).
- * 
- * Prebacuje stanje varijable button2Pressed s debounce logikom.
- */
-void button2ISR();
-
-/**
- * @brief Postavlja Timer1 da generira prekid svakih 500 ms.
- * 
- * Timer se postavlja u CTC (Clear Timer on Compare Match) način.
- * Preskaler: 1024.
- * Prekid se aktivira na Compare Match A.
- */
-void Timer1Setup();
-
-/**
- * @brief ISR za Timer1 Compare Match A prekid.
- * 
- * Toggla led2 svakih 500 ms.
- * Ako je button1Pressed aktivan, mijenja frekvenciju zvučnika 
- * od 500 Hz do 1500 Hz.
- * Kada dosegne 1500 Hz, postavlja zastavicu buzzerLimitReached.
- */
-ISR(TIMER1_COMPA_vect);
-
-/**
- * @brief Prebacuje stanje LED-ice na danom pinu.
- * 
- * @param ledPin Broj pina na kojem se nalazi LED-ica.
- */
-void toggleLED(int ledPin);
