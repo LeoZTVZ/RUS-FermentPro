@@ -13,6 +13,7 @@ Projekt koji demonstrira korištenje spavanja na **Arduino Uno** i buđenje pomo
   - [Aktivni period](#41-aktivni-period)
   - [Spavanje](#42-spavanje)
   - [Buđenje](#43-buđenje)
+  - [Tablica funkcionalnosti](#44-tablica-funkcionalnosti)
 - [Zaključak](#5-zaključak)
 
 ## 1. Opis zadatka
@@ -56,6 +57,19 @@ Projekt koristi **Arduino Uno** s tri glavne funkcionalnosti:
 ### 4.3. Buđenje
 - **Tipkalo**: Kada pritisnete tipkalo povezano na pin 2, Arduino se budi i ispisuje poruku na serijskom monitoru.
 - **Watchdog Timer**: Nakon otprilike 4 sekunde, watchdog timer generira prekid i budi mikrokontroler.
+
+### 4.4. Tablica funkcionalnosti
+
+| ID   | Opis funkcionalnosti |
+|------|----------------------|
+| FR-1 | LED dioda trepće 5 sekundi (2 puta po sekundi, 500 ms ON, 500 ms OFF) |
+| FR-2 | Prelazak u sleep mode nakon što LED dioda prestane treptati |
+| FR-3 | Detekcija pritiska na tipkalo povezano na pin 2 (INT0) za buđenje iz sleep mode-a |
+| FR-4 | Korištenje Watchdog timera za generiranje prekida svakih 4 sekunde i buđenje iz sleep mode-a |
+| FR-5 | Serijska komunikacija ispisuje broj sekundi prošlih od početka treptanja LED diode |
+| FR-6 | Serijska komunikacija ispisuje poruku kada Arduino pređe u sleep mode |
+| FR-7 | Serijska komunikacija ispisuje poruke kada se Arduino budi putem tipkala ili Watchdog timera |
+| FR-8 | Efikasna ušteda energije korištenjem sleep mode-a za smanjenje potrošnje kada uređaj nije aktivan |
 
 ## 5. Zaključak
 Ovaj projekt demonstrira osnovne tehnike upravljanja potrošnjom energije pomoću **sleep mode** i prekida. Korištenjem vanjskih prekida (tipkalo) i Watchdog timera, omogućeno je efikasno upravljanje energijom dok se istovremeno održava funkcionalnost uređaja. 
