@@ -7,11 +7,13 @@ Arduino Uno projekt koji demonstrira upravljanje LED-icama i piezo buzzerom kori
 
 ## 📖 Sadržaj
 
-- Opis zadatka  
-- Hardverske komponente  
-- Slika spojeva  
-- Opis rješenja  
-- Zaključak  
+- [Opis zadatka](#1-opis-zadatka)  
+- [Hardverske komponente](#2-hardverske-komponente)  
+- [Slika spojeva](#3-slika-spojeva)  
+- [Opis rješenja](#4-opis-rješenja)  
+    - [Timer Prekid](#41-timer-prekid)
+    - [Tablica funkcionalnosti](#42-tablica-funkcionalnosti)
+- [Zaključak](#5-zaključak)  
 
 ---
 
