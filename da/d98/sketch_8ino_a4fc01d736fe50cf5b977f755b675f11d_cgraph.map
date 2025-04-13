@@ -1,9 +1,5 @@
 <map id="setup" name="setup">
-<area shape="rect" id="Node000001" title="Postavljanje početnog stanja komponenti." alt="" coords="5,55,64,80"/>
-<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#ae2e7584d3d26e6dd0163d2735c466a17" title="ISR za tipkalo 1 (viši prioritet)." alt="" coords="118,5,211,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,54,117,33,119,38,65,59"/>
-<area shape="rect" id="Node000003" href="$da/d98/sketch_8ino.html#a1070645e82733de46f47b7432972a237" title="ISR za tipkalo 2 (niži prioritet)." alt="" coords="118,55,211,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,65,104,65,104,70,64,70"/>
-<area shape="rect" id="Node000004" href="$da/d98/sketch_8ino.html#a6da768d9996fe5c028404077274e5b4b" title="Postavljanje Timer1 za generiranje prekida svakih 500 ms." alt="" coords="112,104,217,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="65,76,119,96,117,101,63,81"/>
+<area shape="rect" id="Node000001" title="Inicijalizacija ulazno/izlaznih pinova i serijske komunikacije." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#a6becb685a80d2b04d13e90291e3a059f" title="ISR za vanjski prekid (tipkalo)." alt="" coords="112,5,229,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,15,98,15,98,21,64,21"/>
 </map>
