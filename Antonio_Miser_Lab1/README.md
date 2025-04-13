@@ -43,12 +43,11 @@ Cilj projekta je upravljanje LED-icama i buzzerom koristeći dva tipkala i timer
 | Arduino Uno      | 1        | -                           |
 | Tipkalo 1        | 1        | 2 (INT0)                    |
 | Tipkalo 2        | 1        | 3 (INT1)                    |
-| LED1 (crvena)    | 1        | 9                           |
-| LED2 (žuta)      | 1        | 10                          |
+| LED1 (plava)     | 1        | 10                          |
+| LED2 (žuta)      | 1        | 9                           |
 | LED3 (zelena)    | 1        | 8                           |
 | Piezo buzzer     | 1        | 11                          |
-| Otpornici 220Ω   | 3        | -                           |
-| Breadboard       | 1        | -                           |
+| Otpornici 200Ω   | 3        | -                           |
 
 
 ---
@@ -65,17 +64,17 @@ Projekt koristi dvije vanjske tipke povezane na prekide (INT0 i INT1) i Timer1 z
 ### Funkcionalnost:
 
 - **Tipkalo 1 (INT0)**:
-  - Pali LED1
-  - Aktivira buzzer s frekvencijom od 500 Hz koja raste do 1500 Hz, zatim pada
-  - Sve dok je tipkalo pritisnuto, buzzer svira i LED1 ostaje upaljena
+  - Pali LED2 da cijelo vrijeme svijetli
+  - Aktivira buzzer s frekvencijom od 500 Hz koja raste do 1500 Hz, pa zatim pada do 500Hz
+  - Sve dok je tipkalo pritisnuto, buzzer svira i LED2 ostaje upaljena
 
 - **Tipkalo 2 (INT1)**:
   - Ako tipkalo 1 nije aktivno, pali LED3
 
 - **Timer1 (svakih 500ms)**:
-  - Trepće LED2
-  - Ako tipkalo 1 nije aktivno, LED1 također trepće
-  - Ako je tipkalo 1 aktivno, frekvencija buzzera se mijenja u koracima od 100 Hz
+  - Trepće LED1
+  - Ako tipkalo 1 nije aktivno, LED2 također trepće
+  - Ako je tipkalo 1 aktivno, LED1 i dalje trepće
 
 ---
 
@@ -89,13 +88,13 @@ Timer1 je konfiguriran za CTC mod, prescaler 1024. U OCR1A se postavlja vrijedno
 
 | ID   | Opis funkcionalnosti |
 |------|----------------------|
-| FR-1 | Upravljanje LED-icama: LED1 (tipkalo 1), LED2 (timer), LED3 (tipkalo 2) |
+| FR-1 | Upravljanje LED-icama: LED2 (tipkalo 1), LED1 (timer), LED3 (tipkalo 2) |
 | FR-2 | Upravljanje buzzerom s promjenjivom frekvencijom |
 | FR-3 | Detekcija pritiska na tipkala (INT0, INT1) i promjena stanja |
 | FR-4 | Debounce mehanizam za tipkala |
 | FR-5 | Timer1 generira prekid svake 0.5 sekunde |
 | FR-6 | Serijska komunikacija prikazuje stanja prekida |
-| FR-7 | LED2 uvijek trepće kao signal rada sustava |
+| FR-7 | LED1 uvijek trepće kao signal rada sustava |
 | FR-8 | Promjena frekvencije buzzera između 500 Hz i 1500 Hz u koracima od 100 Hz |
 
 ---
