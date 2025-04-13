@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "620230841732",
-    "firebase_url": "https://smartferment-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "smartferment",
-    "storage_bucket": "smartferment.firebasestorage.app"
+    "project_number": "557559761461",
+    "project_id": "device-streaming-467b96f6",
+    "storage_bucket": "device-streaming-467b96f6.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:620230841732:android:17f88f12e4dbeb0b5d39d1",
+        "mobilesdk_app_id": "1:557559761461:android:f7bc92415ea50fbdaf3f7c",
         "android_client_info": {
           "package_name": "com.example.fermentpro"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCGFpCKu-CadpjUJWz0b-e3ac-IK4_Uur4"
+          "current_key": "AIzaSyBtcp2E8bCoNOruant0MPtCJwgi7vUXsuE"
         }
       ],
       "services": {

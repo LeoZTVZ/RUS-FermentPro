@@ -1,0 +1,74 @@
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
+
+class LineChartWidget extends StatelessWidget {
+  const LineChartWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return LineChart(
+      LineChartData(
+        backgroundColor: Colors.transparent,
+        gridData: FlGridData(show: true),
+        titlesData: FlTitlesData(
+          bottomTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              getTitlesWidget: (value, meta) => Text(
+                '${value.toInt()}s',
+                style: TextStyle(color: Colors.white, fontSize: 10),
+              ),
+              interval: 1,
+            ),
+          ),
+          leftTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              reservedSize: 40,
+              getTitlesWidget: (value, meta) => Text(
+                value.toStringAsFixed(0),
+                style: TextStyle(color: Colors.white, fontSize: 10),
+              ),
+              interval: 200,
+            ),
+          ),
+        ),
+        borderData: FlBorderData(show: true),
+        lineBarsData: [
+          // CO2 Line
+          LineChartBarData(
+            isCurved: true,
+            color: Colors.greenAccent,
+            dotData: FlDotData(show: false),
+            spots: [
+              FlSpot(0, 40),
+              FlSpot(1, 42),
+              FlSpot(2, 43),
+              FlSpot(3, 45),
+              FlSpot(4, 47),
+              FlSpot(5, 46),
+            ],
+          ),
+          // Temperature Line
+          LineChartBarData(
+            isCurved: true,
+            color: Theme.of(context).primaryColor,
+            dotData: FlDotData(show: false),
+            spots: [
+              FlSpot(0, 20),
+              FlSpot(1, 21),
+              FlSpot(2, 22),
+              FlSpot(3, 21.5),
+              FlSpot(4, 23),
+              FlSpot(5, 22.8),
+            ],
+          ),
+        ],
+        minX: 0,
+        maxX: 5,
+        minY: 0,
+        maxY: 50,
+      ),
+    );
+  }
+}
