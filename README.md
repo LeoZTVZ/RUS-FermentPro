@@ -7,6 +7,6 @@ Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010
 
 |Komponenta | Opis | Cijena (EUR) | Napomena|
 |------------|-------|---------------|-----------|
-|Arduino MKR WiFi 1010 | Mikrokontroler s Wi-Fi i Bluetooth podrškom, idealan za IoT projekte | ~35–40 € | Dostupan na Arduino službenoj stranici i kod lokalnih distributera|
+|Arduino MKR WiFi 1010 | Mikrokontroler s Wi-Fi i Bluetooth podrškom, idealan za IoT projekte | ~35–40 € | Dostupan na Arduino službenoj stranici|
 |DHT11 senzor | Digitalni senzor temperature i vlažnosti | 4,23–7,50 € | Dostupan na Chipoteka.hr i Nabava.net|
 |Foto-interruptor senzor | Optički senzor za detekciju prekida svjetlosnog snopa | ~2–5 € | Dostupan na Automation Robotics Arduino|
