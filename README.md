@@ -15,9 +15,9 @@ Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010
 
 
 ## Pregled komponenata
-  **Arduino MKR 1010 WiFi**
-  **DHT 11**
-  **Photo interrupt senzor**
+  **Arduino MKR 1010 WiFi**  
+  **DHT 11**  
+  **Photo interrupt senzor**  
   
 
 ## Funkcijski zahtjevi
