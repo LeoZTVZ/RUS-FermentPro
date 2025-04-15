@@ -13,6 +13,13 @@ Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010
   DHT11 senzor | Digitalni senzor temperature i vlažnosti | 4,23–7,50 € | Dostupan na Chipoteka.hr i Nabava.net|
   Foto-interruptor senzor | Optički senzor za detekciju prekida svjetlosnog snopa | ~2–5 € | Dostupan na Automation Robotics Arduino|
 
+
+## Pregled komponenata
+  **Arduino MKR 1010 WiFi**
+  **DHT 11**
+  **Photo interrupt senzor**
+  
+
 ## Funkcijski zahtjevi
 
 FRID | Funkcionalnost | Opis
