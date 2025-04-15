@@ -24,13 +24,14 @@
 */
 var NAVTREE =
 [
-  [ "RUS_Lab2_sleep", "index.html", [
+  [ "RUS_Lab1_prekid", "index.html", [
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -38,7 +39,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"da/d98/sketch_8ino.html"
+"d6/d3b/zad_8ino.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
