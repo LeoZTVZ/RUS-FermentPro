@@ -24,8 +24,8 @@ Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010
 
 FRID | Funkcionalnost | Opis
 -----|-----------------|---------
-FR1 | Mjerenje temperature | Očitanje vanjske temperature svakih 15 minuta radi uštede energije (korištenjem sleep moda)
+FR1 | Mjerenje temperature | Očitanje vanjske temperature svakih 15 minuta radi uštede energije (korištenjem sleep moda) ili vanjski interrupt
 FR2 | Detekcija fermentacijskih mjehurića | Aktivira se kada photo-interrupt senzor detektira prekid svjetlosti (prolazak mjehurića)
-FR3 | Izračun dinamike fermentacije | Računanje brzine fermentacije u mjehurićima po minuti
+FR3 | Izračun dinamike fermentacije | Računanje brzine fermentacije u C02 mjehurići po minuti
 FR4 | Slanje podataka na Firebase | Slanje izmjerenih podataka u stvarnom vremenu putem WiFi veze
 FR5 | Prikaz podataka u aplikaciji | Vizualizacija temperature i dinamike vrenja kroz mobilnu ili web aplikaciju
