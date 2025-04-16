@@ -3,7 +3,7 @@
 Ovaj projekt je osmišljen kako bi pomogao malim vinarima lakše pratiti proces fermentacije vina, ali može se koristiti i za praćenje fermentacije ostalih pića. Mi dolazimo iz kraja gdje postoje mnogi mali vinogradari pa smo s njima na umu došli do ideje za ovaj projekt.
 
 ## Opis projekta
-Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010 WiFi zbog mogućnosti korištenja WiFi-a kako bi se podaci mogli slati na Firebase bazu podataka s koje se preuzimaju podaci za prikazivanje na našoj aplikaciji. Za mjerenje vanjske temperature koristit će se DHT22 senzor za temperaturu, iako može mjeriti i vlagu, za ovaj projekt to nije potrebno. Mjerenje dinamike fermentacije računat će se tako da photo interrupt senzorom brojimo mjehuriće CO2 koji se ispuštaju van i oni se mjere u određenom vremenskom periodu, i tako se može zaključiti dinamika fermentacije.
+Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010 WiFi zbog mogućnosti korištenja WiFi-a kako bi se podaci mogli slati na Firebase bazu podataka s koje se preuzimaju podaci za prikazivanje na našoj aplikaciji. Za mjerenje vanjske temperature koristit će se DHT22 senzor za temperaturu, iako može mjeriti i vlagu, za ovaj projekt to nije potrebno. Mjerenje dinamike fermentacije računat će se tako da photo interrupt senzorom brojimo mjehuriće CO2 koji se ispuštaju van i oni se mjere u određenom vremenskom periodu i tako se može zaključiti dinamika fermentacije.
 
   ### Korištene komponente i njihove cijene
 
