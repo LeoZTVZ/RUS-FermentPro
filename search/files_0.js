@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zad_2eino_0',['zad.ino',['../d6/d3b/zad_8ino.html',1,'']]]
+  ['sketch_2eino_0',['sketch.ino',['../da/d98/sketch_8ino.html',1,'']]]
 ];
