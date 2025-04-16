@@ -1,0 +1,5 @@
+<map id="ISR" name="ISR">
+<area shape="rect" id="Node000001" title="ISR koji se poziva svakih 500 ms putem Timer1." alt="" coords="5,5,48,31"/>
+<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#a4bbc5d148cb44b6581eb6cdf3ac86534" title="Mijenja trenutno stanje LED diode." alt="" coords="96,5,184,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,15,82,15,82,21,48,21"/>
+</map>
