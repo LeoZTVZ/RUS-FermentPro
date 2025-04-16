@@ -1,5 +1,0 @@
-<map id="toggleLED" name="toggleLED">
-<area shape="rect" id="Node000001" title="Mijenja trenutno stanje LED diode." alt="" coords="96,5,184,31"/>
-<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#ad39420cdd896dd12c68e36313139d0a5" title="ISR koji se poziva svakih 500 ms putem Timer1." alt="" coords="5,5,48,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,21,48,21,48,15,82,15"/>
-</map>
