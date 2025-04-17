@@ -36,3 +36,7 @@ FR3 | Izračun dinamike fermentacije | Računanje dinamike fermentacije u CO2 mj
 FR4 | Slanje podataka na Firebase | Slanje izmjerenih podataka u stvarnom vremenu putem WiFi veze
 FR5 | Prikaz podataka u aplikaciji | Vizualizacija temperature i dinamike vrenja kroz mobilnu aplikaciju
 FR6 | Prikaz podataka na LCD ekranu | Prikaz zadnje izmjerene temperature i dinamike vrenja
+
+## Članovi tima
+  __Leo Žižek__  
+  __Antonio Miser__  
