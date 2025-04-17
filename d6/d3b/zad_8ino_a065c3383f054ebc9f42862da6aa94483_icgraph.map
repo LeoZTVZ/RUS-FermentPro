@@ -1,0 +1,5 @@
+<map id="ISR_Button" name="ISR_Button">
+<area shape="rect" id="Node000001" title="ISR za vanjski prekid na INT0 (tipkalo na pinu 2) Postavlja zastavicu buttonPressed." alt="" coords="112,5,205,31"/>
+<area shape="rect" id="Node000002" href="$d6/d3b/zad_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Inicijalizacija sustava, pinova, prekida i modula." alt="" coords="5,5,64,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,21,64,21,64,15,98,15"/>
+</map>
