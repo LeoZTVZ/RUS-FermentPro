@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import '../components/frosted_glass.dart';
 import '../components/line_chart_widget.dart';
+import '../models/fermentRecord.dart';
 import '../services/firebase_service.dart';
 import '../models/bubble_count.dart';
 import '../models/temperature.dart';
@@ -9,34 +10,20 @@ import '../models/temperature.dart';
 class DataPage extends StatelessWidget {
   const DataPage({super.key});
 
-  Future<List<Map<String, dynamic>>> _loadPairedData() async {
+  // Fetch ferment records and map them to a list of key-value pairs.
+  Future<List<FermentRecordModel>> _loadRecords() async {
     final firebaseService = FirebaseService();
-    final bubbleCounts = await firebaseService.fetchBubbleCounts();
-    final temperatures = await firebaseService.fetchTemperatures();
+    final records = await firebaseService.fetchFermentRecords();
 
-    final List<Map<String, dynamic>> pairedData = [];
-
-    for (var temp in temperatures) {
-      BubbleCount? match;
-      try {
-        match = bubbleCounts.firstWhere((b) => b.id == temp.id);
-      } catch (_) {
-        match = null;
-      }
-
-      if (match != null) {
-        pairedData.add({'temperature': temp, 'bubbleCount': match});
-      }
-    }
-
-    return pairedData;
+    // Convert List<Map<String, dynamic>> to List<FermentRecordModel>
+    return records;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: _loadPairedData(),
+      body: FutureBuilder<List<FermentRecordModel>>(
+        future: _loadRecords(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -74,16 +61,18 @@ class DataPage extends StatelessWidget {
                 ),
               ),
 
-              // NEW FrostedGlass Widget above the list
+              // Frosted Glass Widget for LineChartWidget
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
                   child: FrostedGlass(
                     theWidth: screenWidth - (horizontalMargin * 2),
-                    theHeight: 400, // Increased height to fit both thermometers
+                    theHeight: 400, // Height to fit chart
                     theChild: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: LineChartWidget(),
+                      child: LineChartWidget(
+                        records: dataPairs, // Pass the records here
+                      ),
                     ),
                   ),
                 ),
@@ -93,10 +82,7 @@ class DataPage extends StatelessWidget {
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                       (context, index) {
-                    final pair = dataPairs[index];
-                    final temp = pair['temperature'] as Temperature;
-                    final bubble = pair['bubbleCount'] as BubbleCount;
-
+                        final record = dataPairs[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: horizontalMargin,
@@ -110,16 +96,16 @@ class DataPage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("ID: ${temp.id}",  style: TextStyle(
+                              Text("ID: ${record.id}", style: TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),),
-                              Text("Temperature: ${temp.value} °C",
+                              Text("Temperature: ${record.temperature} °C",
                                 style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
                                 ),),
-                              Text("Bubble Count: ${bubble.count}",
+                              Text("Bubble Count: ${record.photoSensor}",
                                 style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
