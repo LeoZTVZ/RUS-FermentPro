@@ -1,0 +1,5 @@
+<map id="enterSleep" name="enterSleep">
+<area shape="rect" id="Node000001" title="Ulazi u način rada spavanja (SLEEP_MODE_PWR_DOWN)." alt="" coords="5,5,97,31"/>
+<area shape="rect" id="Node000002" href="$da/d98/sketch_8ino.html#a476ccd62c199f330f95bce19c498e3e9" title="Postavlja Watchdog timer za buđenje iz sleep moda." alt="" coords="145,5,268,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,15,131,15,131,21,98,21"/>
+</map>
