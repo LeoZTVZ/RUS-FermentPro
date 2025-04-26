@@ -1,71 +1,77 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:FermentPro/pages/data_page.dart';
 import 'package:FermentPro/pages/home_page.dart';
-import 'package:flutter/material.dart';
 
 import '../main.dart';
+import '../models/fermentRecord.dart';
+import '../providers/data_providers.dart';
 
-class DefaultScreen extends StatefulWidget{
+class DefaultScreen extends ConsumerStatefulWidget { // <-- CHANGE TO ConsumerStatefulWidget
   final ThemeNotifier themeNotifier;
 
-  const DefaultScreen({super.key,  required this.themeNotifier});
-
+  const DefaultScreen({super.key, required this.themeNotifier});
 
   @override
-  State<DefaultScreen> createState() => _DefaultScreenState();
+  ConsumerState<DefaultScreen> createState() => _DefaultScreenState();
 }
 
-class _DefaultScreenState extends State<DefaultScreen> {
+class _DefaultScreenState extends ConsumerState<DefaultScreen> { // <--- ConsumerState
   int _selectedIndex = 0;
   int _previousIndex = 0;
 
-  final List<Widget> _pages = [
-    HomePage(),
-    DataPage(),
-  ];
-
-  // void _navigateBottomBar(int index) {
-  //   setState(() {
-  //     _previousIndex = _selectedIndex;
-  //     _selectedIndex = index;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
+    final fermentRecords = ref.watch(fermentRecordProvider);
+
     // Slide direction based on destination page
     final slideFrom = _selectedIndex == 0
         ? const Offset(-1, 0)  // HomePage slides in from left
         : const Offset(1, 0);  // DataPage slides in from right
 
     return Scaffold(
-      body: PageTransitionSwitcher(
-        duration: const Duration(milliseconds: 400),
-        transitionBuilder: (child, animation, secondaryAnimation) {
-          final curvedAnimation = CurvedAnimation(
-            parent: animation,
-            curve: Curves.easeInOutCubic,
-          );
+      body: fermentRecords.when(
+        data: (records) {
 
-          final fade = Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(curvedAnimation);
+         final FermentRecordModel? latestRecord = records.isNotEmpty ? records.last : null;
 
-          final slide = Tween<Offset>(
-            begin: slideFrom,
-            end: Offset.zero,
-          ).animate(curvedAnimation);
+          final pages = [
+            HomePage(latestRecord: latestRecord),
+            DataPage(records: records),
+          ];
 
-          return FadeTransition(
-            opacity: fade,
-            child: SlideTransition(
-              position: slide,
-              child: child,
-            ),
+          return PageTransitionSwitcher(
+            duration: const Duration(milliseconds: 400),
+            transitionBuilder: (child, animation, secondaryAnimation) {
+              final curvedAnimation = CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeInOutCubic,
+              );
+
+              final fade = Tween<double>(
+                begin: 0.0,
+                end: 1.0,
+              ).animate(curvedAnimation);
+
+              final slide = Tween<Offset>(
+                begin: slideFrom,
+                end: Offset.zero,
+              ).animate(curvedAnimation);
+
+              return FadeTransition(
+                opacity: fade,
+                child: SlideTransition(
+                  position: slide,
+                  child: child,
+                ),
+              );
+            },
+            child: pages[_selectedIndex],
           );
         },
-        child: _pages[_selectedIndex],
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Text('Error: $err')),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).bottomAppBarTheme.color,
@@ -98,5 +104,4 @@ class _DefaultScreenState extends State<DefaultScreen> {
       ),
     );
   }
-
 }
