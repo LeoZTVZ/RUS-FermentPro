@@ -1,7 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../models/fermentRecord.dart';
 
 class LineChartWidget extends StatelessWidget {
@@ -21,37 +19,38 @@ class LineChartWidget extends StatelessWidget {
       return const Center(child: Text('No data'));
     }
 
-    final baseTime = parseDateTime(sortedRecords.first.dateTime!);
-
     List<FlSpot> temperatureSpots = [];
     List<FlSpot> photoSensorSpots = [];
+    Map<double, DateTime> xValueToTime = {}; // Map x value to datetime for labels
 
-    for (var record in sortedRecords) {
+    for (int i = 0; i < sortedRecords.length; i++) {
+      final record = sortedRecords[i];
       final time = parseDateTime(record.dateTime!);
-      final secondsSinceStart = time.difference(baseTime).inSeconds.toDouble();
+      final x = i.toDouble(); // Assign simple index-based x-axis
 
       if (record.temperature != null) {
-        temperatureSpots.add(FlSpot(secondsSinceStart, record.temperature.toDouble()));
+        temperatureSpots.add(FlSpot(x, record.temperature!.toDouble()));
+        xValueToTime[x] = time;
       }
 
       if (record.photoSensor != null) {
-        photoSensorSpots.add(FlSpot(secondsSinceStart, record.photoSensor.toDouble()));
+        photoSensorSpots.add(FlSpot(x, record.photoSensor!.toDouble()));
+        xValueToTime[x] = time;
       }
     }
 
-    // Determine maxX to stretch chart width
-    final maxX = [
-      ...temperatureSpots.map((e) => e.x),
-      ...photoSensorSpots.map((e) => e.x)
-    ].fold<double>(0, (a, b) => a > b ? a : b);
+    final allSpots = [...temperatureSpots, ...photoSensorSpots];
+    final maxX = allSpots.map((e) => e.x).fold<double>(0, (a, b) => a > b ? a : b);
+    final maxY = allSpots.map((e) => e.y).fold<double>(0, (a, b) => a > b ? a : b);
 
-    // Chart width in pixels (e.g., 100 pixels per minute)
-    final chartWidth = maxX + 60 * 10; // extend for smooth scroll
-
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+    return InteractiveViewer(
+      constrained: false,
+      scaleEnabled: true, // Allow pinch zoom
+      panEnabled: true,   // Allow panning
+      minScale: 1,
+      maxScale: 5,
       child: SizedBox(
-        width: chartWidth,
+        width: (maxX + 3) * 50, // 50px per record roughly
         height: 300,
         child: LineChart(
           LineChartData(
@@ -61,14 +60,21 @@ class LineChartWidget extends StatelessWidget {
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
                   showTitles: true,
-                  interval: 60,
+                  interval: 1,
                   getTitlesWidget: (value, meta) {
-                    final time = baseTime.add(Duration(seconds: value.toInt()));
-                    return Text(
-                      '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}',
-                      style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
-                    );
+                    if (xValueToTime.containsKey(value)) {
+                      final time = xValueToTime[value]!;
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}',
+                          style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 10),
+                        ),
+                      );
+                    }
+                    return const SizedBox.shrink();
                   },
+                  reservedSize: 32,
                 ),
               ),
               leftTitles: AxisTitles(
@@ -78,33 +84,74 @@ class LineChartWidget extends StatelessWidget {
                   interval: 5,
                   getTitlesWidget: (value, meta) => Text(
                     value.toStringAsFixed(0),
-                    style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
+                    style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 10),
                   ),
                 ),
               ),
+              topTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false), // Hide top titles
+              ),
+              rightTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
             ),
             borderData: FlBorderData(show: true),
+            lineTouchData: LineTouchData(
+              enabled: true,
+              handleBuiltInTouches: true, // Use built-in touches
+              touchTooltipData: LineTouchTooltipData(
+                //tooltipBgColor: Colors.black.withOpacity(0.7), // Background for tooltip
+                fitInsideHorizontally: true, // Important: don't overflow outside left/right
+                fitInsideVertically: true,   // Important: don't overflow outside top/bottom
+                getTooltipItems: (touchedSpots) {
+                  return touchedSpots.map((spot) {
+                    final isTemperature = spot.bar.color == Colors.orange;
+                    return LineTooltipItem(
+                      '${isTemperature ? 'Temp' : 'Light'}\n${spot.y.toStringAsFixed(1)}',
+                      const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+                  }).toList();
+                },
+              ),
+            ),
+
             lineBarsData: [
               LineChartBarData(
                 isCurved: true,
                 color: Colors.orange,
-                dotData: FlDotData(show: false),
+                barWidth: 3,
+                dotData: FlDotData(
+                  show: true,
+                  getDotPainter: (spot, percent, barData, index) => FlDotCirclePainter(
+                    radius: 4,
+                    color: Colors.orange,
+                    strokeColor: Colors.white,
+                  ),
+                ),
                 spots: temperatureSpots,
               ),
               LineChartBarData(
                 isCurved: true,
                 color: Colors.greenAccent,
-                dotData: FlDotData(show: false),
+                barWidth: 3,
+                dotData: FlDotData(
+                  show: true,
+                  getDotPainter: (spot, percent, barData, index) => FlDotCirclePainter(
+                    radius: 4,
+                    color: Colors.greenAccent,
+                    strokeColor: Colors.white,
+                  ),
+                ),
                 spots: photoSensorSpots,
               ),
             ],
             minX: 0,
-            maxX: maxX + 10,
+            maxX: maxX,
             minY: 0,
-            maxY: [
-              ...temperatureSpots.map((e) => e.y),
-              ...photoSensorSpots.map((e) => e.y)
-            ].fold<double>(0, (prev, curr) => curr > prev ? curr : prev) + 10,
+            maxY: maxY + 10,
           ),
         ),
       ),
