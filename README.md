@@ -39,6 +39,15 @@ FR4 | Slanje podataka na Firebase | Slanje izmjerenih podataka u stvarnom vremen
 FR5 | Prikaz podataka u aplikaciji | Vizualizacija temperature i dinamike vrenja kroz mobilnu aplikaciju
 FR6 | Prikaz podataka na LCD ekranu | Prikaz zadnje izmjerene temperature i dinamike vrenja
 
+## Dijagrami
+![image](https://github.com/user-attachments/assets/d3195908-f1e8-4f34-90b0-979bad2a9d7b)
+
+<hr>
+
+![image](https://www.plantuml.com/plantuml/png/XLF1ZjD03BtFLmovK0ILO8yze5rKHJqWiQAHEAxSZ7VhDXbN7a-GYZXpui0_zSEOMLIQqLPA3f6TUU_PVkFS1WNHs7VcbMwnHxk5TezYp6kxn4Vo9B2p-mu2cZQzWxqJ5ydp6ZKUx0zZq_Csv6Jsvb_IilVOwZUgwSwxcWGtYPrEVvfIuZFpVuKknMF86drW-OhWKCuOITcdkDbq66gM3-_Nc4gvSAxxXDfWVq01ZLBKE_Um0k-wYruyK7Y83niunbc_m-t2ajTtLfF8mZvs33hIQAZ76hNTPlwbOFugtA-Qvduq_u2Y3TSiFQYYowYP0qLDmSAkLSW_9UtIPC4EMjgXfMEFfp_nsNKmOxFcZh_x-SVIdOMjzYmKbAfhu7BwQVneqX9RNFnq9oLwkfMICD5BOHm7puD7omEbA9sRegjvqgcMg-RcnWRqHvOgItqv_IQ50NmoN2zhKrtXrgmyfYvHSPzk2cpUcYXq-WMbbPcMzp-Zxtd08pqNUWaw6_82Q6xHk_nN_WK0)
+
+
+
 ## Članovi tima
   __Leo Žižek__  
   __Antonio Miser__  
