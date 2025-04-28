@@ -34,7 +34,7 @@ FRID | Funkcionalnost | Opis
 FR1 | Mjerenje temperature | Očitanje temperature mošta svaku minutu radi uštede energije (korištenjem sleep moda) ili vanjski interrupt
 FR2 | Detekcija fermentacijskih mjehurića | Broji kada photo-interrupt senzor detektira prekid svjetlosti (prolazak mjehurića), aktivira se svaku minutu i broji 10 sekundi
 FR3 | Izračun dinamike fermentacije | Računanje dinamike fermentacije u CO2 mjehurići u 10 sekundi
-FR4 | Zbog očuvanja energije uređaj ide u LightSleep u trajanju od 1 min |
+FR4 | Lightsleep od 1 minute |Zbog očuvanja energije uređaj ide u LightSleep u trajanju od 1 min |
 FR4 | Slanje podataka na Firebase | Slanje izmjerenih podataka u stvarnom vremenu putem WiFi veze
 FR5 | Prikaz podataka u aplikaciji | Vizualizacija temperature i dinamike vrenja kroz mobilnu aplikaciju
 FR6 | Prikaz podataka na LCD ekranu | Prikaz zadnje izmjerene temperature i dinamike vrenja
