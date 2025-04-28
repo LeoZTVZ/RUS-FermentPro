@@ -76,12 +76,11 @@ final double temperature;  // Temperatura u °C
 
 ## 📷 Slike aplikacije
 
-| Home Page | Data Page (Grafovi) |
-| ![Image](https://github.com/user-attachments/assets/7a4eed87-124e-4b1b-a4d9-c7b77f727738)
+| Home Page | 
+| ![Image](https://github.com/user-attachments/assets/7a4eed87-124e-4b1b-a4d9-c7b77f727738) |
+| Data Page (Grafovi) |
 | ![Image](https://github.com/user-attachments/assets/fbd4a666-e01a-44f4-8f42-4d1a5abc1e7e) |
-|           |                                                                                           |
 
-*(Dodajte slike u **`screenshots/`** direktorij)*
 
 ## 🔧 Podešavanje ikone aplikacije
 
