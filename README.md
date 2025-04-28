@@ -39,6 +39,10 @@ FR4 | Slanje podataka na Firebase | Slanje izmjerenih podataka u stvarnom vremen
 FR5 | Prikaz podataka u aplikaciji | Vizualizacija temperature i dinamike vrenja kroz mobilnu aplikaciju
 FR6 | Prikaz podataka na LCD ekranu | Prikaz zadnje izmjerene temperature i dinamike vrenja
 
+![image](https://github.com/user-attachments/assets/d3195908-f1e8-4f34-90b0-979bad2a9d7b)
+
+
+
 ## Članovi tima
   __Leo Žižek__  
   __Antonio Miser__  
