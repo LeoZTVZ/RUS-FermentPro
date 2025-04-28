@@ -78,7 +78,7 @@ void loop()
 /**
  * @brief Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka.
  *
- * Spaja se na WiFi mrežu koristeći SSID i lozinku, a zatim inicijalizira vezu s Firebaseom.
+ * Spaja se na WiFi mrežu koristeći SSID i lozinku, a zatim inicijalizira vezu s Firebase.
  */
 void connectWiFiAndFirebase()
 {
