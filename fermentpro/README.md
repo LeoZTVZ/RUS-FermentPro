@@ -6,6 +6,7 @@
 
 - Prikaz najnovije temperature fermentacije i broja mjehurića (photoSensor).
 - Interaktivni dijagrami temperature i broja mjehurića kroz vrijeme.
+- Promjena teme(dark i light mode
 - Glatke animacije između stranica koristeći `PageTransitionSwitcher`.
 - Sinkronizacija podataka s Firebase baze podataka.
 
@@ -76,10 +77,11 @@ final double temperature;  // Temperatura u °C
 
 ## 📷 Slike aplikacije
 
-| Home Page | 
-| ![Image](https://github.com/user-attachments/assets/7a4eed87-124e-4b1b-a4d9-c7b77f727738) |
-| Data Page (Grafovi) |
-| ![Image](https://github.com/user-attachments/assets/fbd4a666-e01a-44f4-8f42-4d1a5abc1e7e) |
+## Home Page
+<img src="https://github.com/user-attachments/assets/7a4eed87-124e-4b1b-a4d9-c7b77f727738" width="400"/>
+
+## Data Page (Grafovi)
+<img src="https://github.com/user-attachments/assets/fbd4a666-e01a-44f4-8f42-4d1a5abc1e7e" width="400"/>
 
 
 ## 🔧 Podešavanje ikone aplikacije
