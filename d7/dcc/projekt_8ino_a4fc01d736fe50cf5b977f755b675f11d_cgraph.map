@@ -1,0 +1,5 @@
+<map id="setup" name="setup">
+<area shape="rect" id="Node000001" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="Node000002" href="$d7/dcc/projekt_8ino.html#a92b1e76868430b5201c5d8184ddf1d02" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="112,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,15,98,15,98,21,64,21"/>
+</map>
