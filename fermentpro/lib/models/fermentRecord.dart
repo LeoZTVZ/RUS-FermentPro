@@ -1,9 +1,11 @@
+import 'dart:ffi';
+
 class FermentRecordModel {
   final String id; // <- New field
   final String dateTime;
   final String deviceId;
   final int photoSensor;
-  final int temperature;
+  final double temperature;
 
   FermentRecordModel({
     required this.id,
@@ -19,7 +21,9 @@ class FermentRecordModel {
       dateTime: json['dateTime'],
       deviceId: json['deviceId'],
       photoSensor: json['photoSensor'],
-      temperature: json['temperature'],
+      temperature: (json['temperature'] is int)
+          ? (json['temperature'] as int).toDouble()
+          : json['temperature'] as double,  // This will safely handle both int and double
     );
   }
   factory FermentRecordModel.fromMap(Map<String, dynamic> map) {

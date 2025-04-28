@@ -29,7 +29,7 @@ class LineChartWidget extends StatelessWidget {
       final x = i.toDouble(); // Assign simple index-based x-axis
 
       if (record.temperature != null) {
-        temperatureSpots.add(FlSpot(x, record.temperature!.toDouble()));
+        temperatureSpots.add(FlSpot(x, record.temperature));
         xValueToTime[x] = time;
       }
 

@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       vsync: this,
     );
 
-    _fillAnimation = Tween<double>(begin: 0.0, end: latestRecord!.temperature.toDouble()).animate(
+    _fillAnimation = Tween<double>(begin: 0.0, end: latestRecord!.temperature).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
