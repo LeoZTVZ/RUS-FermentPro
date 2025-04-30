@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loop_0',['loop',['../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'projekt.ino']]]
+  ['gettimefromhttp_0',['getTimeFromHTTP',['../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7',1,'projekt.ino']]]
 ];

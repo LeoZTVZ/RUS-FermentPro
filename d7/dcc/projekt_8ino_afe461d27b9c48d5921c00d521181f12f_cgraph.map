@@ -1,14 +1,17 @@
 <map id="loop" name="loop">
-<area shape="rect" id="Node000001" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,55,56,80"/>
+<area shape="rect" id="Node000001" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,104,56,129"/>
 <area shape="rect" id="Node000002" href="$d7/dcc/projekt_8ino.html#a92b1e76868430b5201c5d8184ddf1d02" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="110,5,291,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,56,103,39,131,32,132,37,105,45,57,61"/>
-<area shape="rect" id="Node000003" href="$d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4" title="Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi." alt="" coords="104,55,297,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="56,65,90,65,90,70,56,70"/>
-<area shape="rect" id="Node000004" href="$d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="149,104,252,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="57,73,105,89,137,98,136,103,103,94,56,78"/>
-<area shape="rect" id="Node000005" href="$d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="536,104,721,129"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="252,114,522,114,522,119,252,119"/>
-<area shape="rect" id="Node000006" href="$d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="345,129,488,155"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="252,120,332,129,331,135,252,125"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="488,131,522,127,523,132,489,136"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,102,65,70,103,40,115,33,118,38,105,44,69,74,43,105"/>
+<area shape="rect" id="Node000003" href="$d7/dcc/projekt_8ino.html#ae4509f6712a5b0de5b07113b12988dd8" title=" " alt="" coords="179,55,222,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="56,105,103,89,165,72,167,77,105,94,57,110"/>
+<area shape="rect" id="Node000004" href="$d7/dcc/projekt_8ino.html#ac21d052bacaf620de472c9d000f0be38" title=" " alt="" coords="180,104,221,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="56,114,166,114,166,119,56,119"/>
+<area shape="rect" id="Node000005" href="$d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4" title="Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi." alt="" coords="104,153,297,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="57,123,105,138,137,147,136,152,103,143,56,128"/>
+<area shape="rect" id="Node000006" href="$d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="149,203,252,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="43,128,69,158,105,188,137,201,135,206,103,192,65,162,39,131"/>
+<area shape="rect" id="Node000007" href="$d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="345,177,531,203"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="252,207,331,199,332,204,253,213"/>
+<area shape="rect" id="Node000008" href="$d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="367,227,509,252"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="253,218,353,228,352,233,252,223"/>
 </map>

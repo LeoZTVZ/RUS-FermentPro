@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['upis_5fu_5fbazu_0',['upis_u_bazu',['../d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0',1,'projekt.ino']]]
+  ['readbubblesfor10seconds_0',['readBubblesFor10Seconds',['../d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4',1,'projekt.ino']]]
 ];

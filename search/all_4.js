@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['projekt_2eino_0',['projekt.ino',['../d7/dcc/projekt_8ino.html',1,'']]]
+  ['gettimefromhttp_0',['getTimeFromHTTP',['../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7',1,'projekt.ino']]]
 ];

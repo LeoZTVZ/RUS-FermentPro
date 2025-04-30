@@ -1,5 +1,9 @@
 <map id="setup" name="setup">
-<area shape="rect" id="Node000001" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="Node000001" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,55,64,80"/>
 <area shape="rect" id="Node000002" href="$d7/dcc/projekt_8ino.html#a92b1e76868430b5201c5d8184ddf1d02" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="112,5,293,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,15,98,15,98,21,64,21"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,55,111,39,138,32,140,37,113,45,65,60"/>
+<area shape="rect" id="Node000003" href="$d7/dcc/projekt_8ino.html#ae4509f6712a5b0de5b07113b12988dd8" title=" " alt="" coords="181,55,224,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,65,168,65,168,70,64,70"/>
+<area shape="rect" id="Node000004" href="$d7/dcc/projekt_8ino.html#ac21d052bacaf620de472c9d000f0be38" title=" " alt="" coords="182,104,223,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="65,74,113,89,169,105,168,110,111,94,63,79"/>
 </map>

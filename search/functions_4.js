@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setup_0',['setup',['../d7/dcc/projekt_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'projekt.ino']]]
+  ['readbubblesfor10seconds_0',['readBubblesFor10Seconds',['../d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4',1,'projekt.ino']]]
 ];

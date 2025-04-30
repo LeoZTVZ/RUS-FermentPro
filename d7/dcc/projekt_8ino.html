@@ -91,16 +91,75 @@ $(document).ready(function(){initNavTree('d7/dcc/projekt_8ino.html','../../'); i
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">projekt.ino File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Glavni Arduino kod za rad s Firebaseom, očitavanje podataka sa senzora i prikazivanje na LCD ekranu.  
 <a href="#details">More...</a></p>
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;DHT.h&quot;</code><br />
+<code>#include &lt;WiFiNINA.h&gt;</code><br />
+<code>#include &quot;Firebase_Arduino_WiFiNINA.h&quot;</code><br />
+<code>#include &lt;WiFiSSLClient.h&gt;</code><br />
+<code>#include &lt;ArduinoHttpClient.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d11/arduino__secrets_8h_source.html">arduino_secrets.h</a>&quot;</code><br />
+<code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;LiquidCrystal_I2C.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for projekt.ino:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d3c/projekt_8ino__incl.png" border="0" usemap="#aprojekt_8ino" alt=""/></div>
+<map name="aprojekt_8ino" id="aprojekt_8ino">
+<area shape="rect" title="Glavni Arduino kod za rad s Firebaseom, očitavanje podataka sa senzora i prikazivanje na LCD ekranu." alt="" coords="545,5,637,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,67,104"/>
+<area shape="poly" title=" " alt="" coords="545,25,347,43,216,59,81,81,80,76,215,54,346,38,544,20"/>
+<area shape="rect" title=" " alt="" coords="91,79,186,104"/>
+<area shape="poly" title=" " alt="" coords="545,28,200,81,199,76,544,23"/>
+<area shape="rect" title=" " alt="" coords="210,79,425,104"/>
+<area shape="poly" title=" " alt="" coords="547,33,375,78,374,73,546,28"/>
+<area shape="rect" title=" " alt="" coords="449,79,572,104"/>
+<area shape="poly" title=" " alt="" coords="580,33,536,72,532,68,576,29"/>
+<area shape="rect" title=" " alt="" coords="597,79,747,104"/>
+<area shape="poly" title=" " alt="" coords="605,29,650,68,647,72,602,33"/>
+<area shape="rect" href="../../d1/d11/arduino__secrets_8h.html" title=" " alt="" coords="771,79,909,104"/>
+<area shape="poly" title=" " alt="" coords="631,28,787,72,786,77,630,33"/>
+<area shape="rect" title=" " alt="" coords="933,79,997,104"/>
+<area shape="poly" title=" " alt="" coords="637,24,761,45,920,76,919,81,760,50,636,29"/>
+<area shape="rect" title=" " alt="" coords="1021,79,1168,104"/>
+<area shape="poly" title=" " alt="" coords="637,23,1008,75,1007,80,636,28"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6da65b1c0b1c71c1da9ac3aaecdcdfe7" id="r_a6da65b1c0b1c71c1da9ac3aaecdcdfe7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a6da65b1c0b1c71c1da9ac3aaecdcdfe7">SECRET_AUTH</a>&#160;&#160;&#160;&quot;x&quot;</td></tr>
+<tr class="separator:a6da65b1c0b1c71c1da9ac3aaecdcdfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586542b79d00e4db7e1d5a667ae83a2b" id="r_a586542b79d00e4db7e1d5a667ae83a2b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a586542b79d00e4db7e1d5a667ae83a2b">WIFI_SSID</a>&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#af44aa8face3356c1566d19fcad3e5f8b">SECRET_SSID</a></td></tr>
+<tr class="separator:a586542b79d00e4db7e1d5a667ae83a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8685d8aff7e570048090a3a51afceb07" id="r_a8685d8aff7e570048090a3a51afceb07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a8685d8aff7e570048090a3a51afceb07">WIFI_PASSWORD</a>&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#af9af3945a9a7c95d2d047a2183832d35">SECRET_PASS</a></td></tr>
+<tr class="separator:a8685d8aff7e570048090a3a51afceb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd939b64a048d6ed459be654090a838a" id="r_acd939b64a048d6ed459be654090a838a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#acd939b64a048d6ed459be654090a838a">FIREBASE_HOST</a>&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#a45c328a37bb5a6ff3122c63357b27b80">SECRET_HOST</a></td></tr>
+<tr class="separator:acd939b64a048d6ed459be654090a838a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a689f00c928d30a9e6b9c294e8148c1" id="r_a7a689f00c928d30a9e6b9c294e8148c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a7a689f00c928d30a9e6b9c294e8148c1">FIREBASE_AUTH</a>&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#a6da65b1c0b1c71c1da9ac3aaecdcdfe7">SECRET_AUTH</a></td></tr>
+<tr class="separator:a7a689f00c928d30a9e6b9c294e8148c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757bb4e2bff6148de6ef3989b32a0126" id="r_a757bb4e2bff6148de6ef3989b32a0126"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a757bb4e2bff6148de6ef3989b32a0126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869d240b97372ea02f69d2ab0255e32d" id="r_a869d240b97372ea02f69d2ab0255e32d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a869d240b97372ea02f69d2ab0255e32d">DHTPOW</a>&#160;&#160;&#160;11</td></tr>
+<tr class="separator:a869d240b97372ea02f69d2ab0255e32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c509dba12bba99883a5be9341b7a0c5" id="r_a2c509dba12bba99883a5be9341b7a0c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>&#160;&#160;&#160;DHT22</td></tr>
+<tr class="separator:a2c509dba12bba99883a5be9341b7a0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae4509f6712a5b0de5b07113b12988dd8" id="r_ae4509f6712a5b0de5b07113b12988dd8"><td class="memItemLeft" align="right" valign="top">DHT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#ae4509f6712a5b0de5b07113b12988dd8">dht</a> (2, DHT22)</td></tr>
+<tr class="separator:ae4509f6712a5b0de5b07113b12988dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21d052bacaf620de472c9d000f0be38" id="r_ac21d052bacaf620de472c9d000f0be38"><td class="memItemLeft" align="right" valign="top">LiquidCrystal_I2C&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#ac21d052bacaf620de472c9d000f0be38">lcd</a> (0x27, 20, 4)</td></tr>
+<tr class="separator:ac21d052bacaf620de472c9d000f0be38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran.  <br /></td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,11 +181,143 @@ Functions</h2></td></tr>
 <tr class="memitem:a92ae54979e968544f5cc610ec934870a" id="r_a92ae54979e968544f5cc610ec934870a"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a">convertToFormattedTime</a> (String datetime)</td></tr>
 <tr class="memdesc:a92ae54979e968544f5cc610ec934870a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcija koja konvertira UTC vrijeme u formatirani string.  <br /></td></tr>
 <tr class="separator:a92ae54979e968544f5cc610ec934870a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1073356e0e1a07d0cf84ec154a2060ec" id="r_a1073356e0e1a07d0cf84ec154a2060ec"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a1073356e0e1a07d0cf84ec154a2060ec">sensorPin</a> = 7</td></tr>
+<tr class="separator:a1073356e0e1a07d0cf84ec154a2060ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b37470b9914566c41427050ff31e2d1" id="r_a1b37470b9914566c41427050ff31e2d1"><td class="memItemLeft" align="right" valign="top">FirebaseData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a1b37470b9914566c41427050ff31e2d1">firebaseData</a></td></tr>
+<tr class="separator:a1b37470b9914566c41427050ff31e2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e9ce9929fd43922917c803f9f8929a5" id="r_a7e9ce9929fd43922917c803f9f8929a5"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a7e9ce9929fd43922917c803f9f8929a5">server</a> [] = &quot;www.timeapi.io&quot;</td></tr>
+<tr class="separator:a7e9ce9929fd43922917c803f9f8929a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c89c04d1feae07ca35558055155ffb" id="r_a63c89c04d1feae07ca35558055155ffb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a63c89c04d1feae07ca35558055155ffb">port</a> = 443</td></tr>
+<tr class="separator:a63c89c04d1feae07ca35558055155ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5dfdc2565bc1a0745f6d5aea95fcddd" id="r_aa5dfdc2565bc1a0745f6d5aea95fcddd"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#aa5dfdc2565bc1a0745f6d5aea95fcddd">path1</a> = &quot;/api/Time/current/zone?timeZone=UTC&quot;</td></tr>
+<tr class="separator:aa5dfdc2565bc1a0745f6d5aea95fcddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec0de3047725b2b432e393606c8e1a3" id="r_a4ec0de3047725b2b432e393606c8e1a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a4ec0de3047725b2b432e393606c8e1a3">lastState</a> = HIGH</td></tr>
+<tr class="separator:a4ec0de3047725b2b432e393606c8e1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a52c141e84f170fc495e70da1ce8b6" id="r_af7a52c141e84f170fc495e70da1ce8b6"><td class="memItemLeft" align="right" valign="top">WiFiSSLClient&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#af7a52c141e84f170fc495e70da1ce8b6">wifi</a></td></tr>
+<tr class="separator:af7a52c141e84f170fc495e70da1ce8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90635ff3c75be497dbac96d5536b378e" id="r_a90635ff3c75be497dbac96d5536b378e"><td class="memItemLeft" align="right" valign="top">HttpClient&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/projekt_8ino.html#a90635ff3c75be497dbac96d5536b378e">client</a> = HttpClient(<a class="el" href="../../d7/dcc/projekt_8ino.html#af7a52c141e84f170fc495e70da1ce8b6">wifi</a>, <a class="el" href="../../d7/dcc/projekt_8ino.html#a7e9ce9929fd43922917c803f9f8929a5">server</a>, <a class="el" href="../../d7/dcc/projekt_8ino.html#a63c89c04d1feae07ca35558055155ffb">port</a>)</td></tr>
+<tr class="separator:a90635ff3c75be497dbac96d5536b378e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Glavni Arduino kod za rad s Firebaseom, očitavanje podataka sa senzora i prikazivanje na LCD ekranu. </p>
 <p>Ovaj projekt koristi DHT22 senzor za očitavanje temperature, foto senzor za detekciju mjehurića i LCD ekran za prikaz podataka. Također, podaci se šalju na Firebase i koristi se API za dohvat trenutnog vremena. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a757bb4e2bff6148de6ef3989b32a0126" name="a757bb4e2bff6148de6ef3989b32a0126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a757bb4e2bff6148de6ef3989b32a0126">&#9670;&#160;</a></span>DHTPIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTPIN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a869d240b97372ea02f69d2ab0255e32d" name="a869d240b97372ea02f69d2ab0255e32d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a869d240b97372ea02f69d2ab0255e32d">&#9670;&#160;</a></span>DHTPOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTPOW&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c509dba12bba99883a5be9341b7a0c5" name="a2c509dba12bba99883a5be9341b7a0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c509dba12bba99883a5be9341b7a0c5">&#9670;&#160;</a></span>DHTTYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTTYPE&#160;&#160;&#160;DHT22</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a689f00c928d30a9e6b9c294e8148c1" name="a7a689f00c928d30a9e6b9c294e8148c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a689f00c928d30a9e6b9c294e8148c1">&#9670;&#160;</a></span>FIREBASE_AUTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIREBASE_AUTH&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#a6da65b1c0b1c71c1da9ac3aaecdcdfe7">SECRET_AUTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd939b64a048d6ed459be654090a838a" name="acd939b64a048d6ed459be654090a838a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd939b64a048d6ed459be654090a838a">&#9670;&#160;</a></span>FIREBASE_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIREBASE_HOST&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#a45c328a37bb5a6ff3122c63357b27b80">SECRET_HOST</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6da65b1c0b1c71c1da9ac3aaecdcdfe7" name="a6da65b1c0b1c71c1da9ac3aaecdcdfe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da65b1c0b1c71c1da9ac3aaecdcdfe7">&#9670;&#160;</a></span>SECRET_AUTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SECRET_AUTH&#160;&#160;&#160;&quot;x&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8685d8aff7e570048090a3a51afceb07" name="a8685d8aff7e570048090a3a51afceb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8685d8aff7e570048090a3a51afceb07">&#9670;&#160;</a></span>WIFI_PASSWORD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WIFI_PASSWORD&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#af9af3945a9a7c95d2d047a2183832d35">SECRET_PASS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a586542b79d00e4db7e1d5a667ae83a2b" name="a586542b79d00e4db7e1d5a667ae83a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586542b79d00e4db7e1d5a667ae83a2b">&#9670;&#160;</a></span>WIFI_SSID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WIFI_SSID&#160;&#160;&#160;<a class="el" href="../../d1/d11/arduino__secrets_8h.html#af44aa8face3356c1566d19fcad3e5f8b">SECRET_SSID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a92b1e76868430b5201c5d8184ddf1d02" name="a92b1e76868430b5201c5d8184ddf1d02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92b1e76868430b5201c5d8184ddf1d02">&#9670;&#160;</a></span>connectWiFiAndFirebase()</h2>
 
@@ -144,11 +335,11 @@ Functions</h2></td></tr>
 
 <p>Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka. </p>
 <p>Spaja se na WiFi mrežu koristeći SSID i lozinku, a zatim inicijalizira vezu s Firebase. </p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_a92b1e76868430b5201c5d8184ddf1d02_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a92b1e76868430b5201c5d8184ddf1d02_icgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_a92b1e76868430b5201c5d8184ddf1d02_icgraph" id="ad7/dcc/projekt_8ino_a92b1e76868430b5201c5d8184ddf1d02_icgraph">
 <area shape="rect" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="112,31,293,56"/>
@@ -186,21 +377,60 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Formatirani string vremena. </dd></dl>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_a92ae54979e968544f5cc610ec934870a_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a92ae54979e968544f5cc610ec934870a_icgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_a92ae54979e968544f5cc610ec934870a_icgraph" id="ad7/dcc/projekt_8ino_a92ae54979e968544f5cc610ec934870a_icgraph">
-<area shape="rect" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="445,31,631,56"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="255,5,397,31"/>
-<area shape="poly" title=" " alt="" coords="431,33,397,29,398,24,432,28"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="104,31,207,56"/>
-<area shape="poly" title=" " alt="" coords="432,46,207,46,207,41,432,41"/>
-<area shape="poly" title=" " alt="" coords="242,33,207,38,206,33,241,28"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,31,56,56"/>
-<area shape="poly" title=" " alt="" coords="90,46,57,46,57,41,90,41"/>
+<area shape="rect" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="255,5,440,31"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="104,5,207,31"/>
+<area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,5,56,31"/>
+<area shape="poly" title=" " alt="" coords="90,21,57,21,57,15,90,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae4509f6712a5b0de5b07113b12988dd8" name="ae4509f6712a5b0de5b07113b12988dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4509f6712a5b0de5b07113b12988dd8">&#9670;&#160;</a></span>dht()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DHT dht </td>
+          <td>(</td>
+          <td class="paramtype">2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DHT22&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcc/projekt_8ino_ae4509f6712a5b0de5b07113b12988dd8_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_ae4509f6712a5b0de5b07113b12988dd8_icgraph" alt=""/></div>
+<map name="ad7/dcc/projekt_8ino_ae4509f6712a5b0de5b07113b12988dd8_icgraph" id="ad7/dcc/projekt_8ino_ae4509f6712a5b0de5b07113b12988dd8_icgraph">
+<area shape="rect" title=" " alt="" coords="112,31,155,56"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="9,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="98,37,59,27,61,22,99,32"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,55,64,80"/>
+<area shape="poly" title=" " alt="" coords="99,54,65,63,64,58,98,49"/>
 </map>
 </div>
 
@@ -222,25 +452,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Funkcija za dohvat trenutnog vremena sa HTTP API-ja. </p>
-<p>Povezuje se na API "timeapi.io" i dohvaća UTC vremensku oznaku u formatu ISO 8601.</p>
+<p>Povezuje se na API "timeapi.io" i dohvaća UTC vremensku oznaku u formatu ISO 8601. Ako API ne radi, vrijeme i datum se računa od trenutačnog datuma + milisekunde koje se broj ood početka rada</p>
 <dl class="section return"><dt>Returns</dt><dd>Trenutno vrijeme u formatu "yyyy-MM-ddTHH:mm:ss". </dd></dl>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_cgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_cgraph" alt=""/></div>
-<map name="ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_cgraph" id="ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_cgraph">
-<area shape="rect" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="5,5,148,31"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="196,5,381,31"/>
-<area shape="poly" title=" " alt="" coords="148,15,182,15,182,21,148,21"/>
-</map>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_icgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_icgraph" id="ad7/dcc/projekt_8ino_a1459b3a93075cf79086ab39c42fa8ff7_icgraph">
 <area shape="rect" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="255,5,397,31"/>
@@ -248,6 +466,54 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
 <area shape="rect" href="../../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,5,56,31"/>
 <area shape="poly" title=" " alt="" coords="90,21,57,21,57,15,90,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac21d052bacaf620de472c9d000f0be38" name="ac21d052bacaf620de472c9d000f0be38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21d052bacaf620de472c9d000f0be38">&#9670;&#160;</a></span>lcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidCrystal_I2C lcd </td>
+          <td>(</td>
+          <td class="paramtype">0x27&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">20&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">4&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcc/projekt_8ino_ac21d052bacaf620de472c9d000f0be38_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_ac21d052bacaf620de472c9d000f0be38_icgraph" alt=""/></div>
+<map name="ad7/dcc/projekt_8ino_ac21d052bacaf620de472c9d000f0be38_icgraph" id="ad7/dcc/projekt_8ino_ac21d052bacaf620de472c9d000f0be38_icgraph">
+<area shape="rect" title=" " alt="" coords="112,31,153,56"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="9,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="98,37,59,27,61,22,99,32"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,55,64,80"/>
+<area shape="poly" title=" " alt="" coords="99,54,65,63,63,58,98,49"/>
 </map>
 </div>
 
@@ -270,25 +536,28 @@ Functions</h2></td></tr>
 
 <p>Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu. </p>
 <p>Ova funkcija čita podatke temperature sa DHT22 senzora i broji mjehuriće putem foto senzora. Zatim prikazuje te podatke na LCD ekranu, pohranjuje ih na Firebase i čeka jednu minutu prije nego što ponovi postupak. </p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" id="ad7/dcc/projekt_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph">
-<area shape="rect" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,55,56,80"/>
+<area shape="rect" title="Glavna petlja koja kontinuirano čita podatke sa senzora i prikazuje ih na LCD ekranu." alt="" coords="5,104,56,129"/>
 <area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92b1e76868430b5201c5d8184ddf1d02" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="110,5,291,31"/>
-<area shape="poly" title=" " alt="" coords="56,56,103,39,131,32,132,37,105,45,57,61"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4" title="Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi." alt="" coords="104,55,297,80"/>
-<area shape="poly" title=" " alt="" coords="56,65,90,65,90,70,56,70"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="149,104,252,129"/>
-<area shape="poly" title=" " alt="" coords="57,73,105,89,137,98,136,103,103,94,56,78"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="536,104,721,129"/>
-<area shape="poly" title=" " alt="" coords="252,114,522,114,522,119,252,119"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="345,129,488,155"/>
-<area shape="poly" title=" " alt="" coords="252,120,332,129,331,135,252,125"/>
-<area shape="poly" title=" " alt="" coords="488,131,522,127,523,132,489,136"/>
+<area shape="poly" title=" " alt="" coords="39,102,65,70,103,40,115,33,118,38,105,44,69,74,43,105"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#ae4509f6712a5b0de5b07113b12988dd8" title=" " alt="" coords="179,55,222,80"/>
+<area shape="poly" title=" " alt="" coords="56,105,103,89,165,72,167,77,105,94,57,110"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#ac21d052bacaf620de472c9d000f0be38" title=" " alt="" coords="180,104,221,129"/>
+<area shape="poly" title=" " alt="" coords="56,114,166,114,166,119,56,119"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a625112c998d25d4d9beee25bf3063ee4" title="Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi." alt="" coords="104,153,297,179"/>
+<area shape="poly" title=" " alt="" coords="57,123,105,138,137,147,136,152,103,143,56,128"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#afcf6810f5ab74e51ebc4f33887e57af0" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="149,203,252,228"/>
+<area shape="poly" title=" " alt="" coords="43,128,69,158,105,188,137,201,135,206,103,192,65,162,39,131"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="345,177,531,203"/>
+<area shape="poly" title=" " alt="" coords="252,207,331,199,332,204,253,213"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="367,227,509,252"/>
+<area shape="poly" title=" " alt="" coords="253,218,353,228,352,233,252,223"/>
 </map>
 </div>
 
@@ -312,11 +581,11 @@ Functions</h2></td></tr>
 <p>Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi. </p>
 <p>Funkcija mjeri promjene stanja foto senzora i broji koliko puta se stanje promijeni (detektira prolazak mjehurića).</p>
 <dl class="section return"><dt>Returns</dt><dd>Broj detektiranih mjehurića u razdoblju od 10 sekundi. </dd></dl>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_a625112c998d25d4d9beee25bf3063ee4_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a625112c998d25d4d9beee25bf3063ee4_icgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_a625112c998d25d4d9beee25bf3063ee4_icgraph" id="ad7/dcc/projekt_8ino_a625112c998d25d4d9beee25bf3063ee4_icgraph">
 <area shape="rect" title="Funkcija koja očitava broj mjehurića sa foto senzora tijekom 10 sekundi." alt="" coords="104,5,297,31"/>
@@ -344,16 +613,20 @@ Functions</h2></td></tr>
 
 <p>Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran. </p>
 <p>Ova funkcija se izvodi samo jednom prilikom pokretanja i postavlja sve potrebne inicijalizacije, uključujući serijsku komunikaciju, WiFi, Firebase, DHT senzor i LCD ekran. </p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="ad7/dcc/projekt_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
-<area shape="rect" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,5,64,31"/>
+<area shape="rect" title="Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran." alt="" coords="5,55,64,80"/>
 <area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92b1e76868430b5201c5d8184ddf1d02" title="Funkcija za povezivanje na WiFi mrežu i Firebase bazu podataka." alt="" coords="112,5,293,31"/>
-<area shape="poly" title=" " alt="" coords="64,15,98,15,98,21,64,21"/>
+<area shape="poly" title=" " alt="" coords="63,55,111,39,138,32,140,37,113,45,65,60"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#ae4509f6712a5b0de5b07113b12988dd8" title=" " alt="" coords="181,55,224,80"/>
+<area shape="poly" title=" " alt="" coords="64,65,168,65,168,70,64,70"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#ac21d052bacaf620de472c9d000f0be38" title=" " alt="" coords="182,104,223,129"/>
+<area shape="poly" title=" " alt="" coords="65,74,113,89,169,105,168,110,111,94,63,79"/>
 </map>
 </div>
 
@@ -394,26 +667,25 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_cgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_cgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_cgraph" id="ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_cgraph">
-<area shape="rect" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="5,5,108,31"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="347,5,532,31"/>
-<area shape="poly" title=" " alt="" coords="108,15,333,15,333,21,108,21"/>
-<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="156,31,299,56"/>
-<area shape="poly" title=" " alt="" coords="109,23,143,28,142,33,108,28"/>
-<area shape="poly" title=" " alt="" coords="299,32,333,28,333,33,299,37"/>
+<area shape="rect" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="5,31,108,56"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a92ae54979e968544f5cc610ec934870a" title="Funkcija koja konvertira UTC vrijeme u formatirani string." alt="" coords="156,5,341,31"/>
+<area shape="poly" title=" " alt="" coords="108,34,142,29,143,35,109,39"/>
+<area shape="rect" href="../../d7/dcc/projekt_8ino.html#a1459b3a93075cf79086ab39c42fa8ff7" title="Funkcija za dohvat trenutnog vremena sa HTTP API&#45;ja." alt="" coords="177,55,320,80"/>
+<area shape="poly" title=" " alt="" coords="109,47,164,54,163,59,108,52"/>
 </map>
 </div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_icgraph.png" border="0" usemap="#ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_icgraph" alt=""/></div>
 <map name="ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_icgraph" id="ad7/dcc/projekt_8ino_afcf6810f5ab74e51ebc4f33887e57af0_icgraph">
 <area shape="rect" title="Funkcija koja unosi podatke o mjehurićima i temperaturi u Firebase bazu podataka." alt="" coords="104,5,207,31"/>
@@ -421,6 +693,119 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="90,21,57,21,57,15,90,15"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a90635ff3c75be497dbac96d5536b378e" name="a90635ff3c75be497dbac96d5536b378e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90635ff3c75be497dbac96d5536b378e">&#9670;&#160;</a></span>client</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HttpClient client = HttpClient(<a class="el" href="../../d7/dcc/projekt_8ino.html#af7a52c141e84f170fc495e70da1ce8b6">wifi</a>, <a class="el" href="../../d7/dcc/projekt_8ino.html#a7e9ce9929fd43922917c803f9f8929a5">server</a>, <a class="el" href="../../d7/dcc/projekt_8ino.html#a63c89c04d1feae07ca35558055155ffb">port</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b37470b9914566c41427050ff31e2d1" name="a1b37470b9914566c41427050ff31e2d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b37470b9914566c41427050ff31e2d1">&#9670;&#160;</a></span>firebaseData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FirebaseData firebaseData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ec0de3047725b2b432e393606c8e1a3" name="a4ec0de3047725b2b432e393606c8e1a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec0de3047725b2b432e393606c8e1a3">&#9670;&#160;</a></span>lastState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lastState = HIGH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5dfdc2565bc1a0745f6d5aea95fcddd" name="aa5dfdc2565bc1a0745f6d5aea95fcddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5dfdc2565bc1a0745f6d5aea95fcddd">&#9670;&#160;</a></span>path1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String path1 = &quot;/api/Time/current/zone?timeZone=UTC&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63c89c04d1feae07ca35558055155ffb" name="a63c89c04d1feae07ca35558055155ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c89c04d1feae07ca35558055155ffb">&#9670;&#160;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int port = 443</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1073356e0e1a07d0cf84ec154a2060ec" name="a1073356e0e1a07d0cf84ec154a2060ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1073356e0e1a07d0cf84ec154a2060ec">&#9670;&#160;</a></span>sensorPin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int sensorPin = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e9ce9929fd43922917c803f9f8929a5" name="a7e9ce9929fd43922917c803f9f8929a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e9ce9929fd43922917c803f9f8929a5">&#9670;&#160;</a></span>server</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char server[] = &quot;www.timeapi.io&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7a52c141e84f170fc495e70da1ce8b6" name="af7a52c141e84f170fc495e70da1ce8b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a52c141e84f170fc495e70da1ce8b6">&#9670;&#160;</a></span>wifi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WiFiSSLClient wifi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
