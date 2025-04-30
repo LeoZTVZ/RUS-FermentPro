@@ -5,6 +5,38 @@
  * Ovaj projekt koristi DHT22 senzor za očitavanje temperature, foto senzor za detekciju mjehurića i LCD ekran za prikaz podataka.
  * Također, podaci se šalju na Firebase i koristi se API za dohvat trenutnog vremena.
  */
+#include "DHT.h"
+#include <WiFiNINA.h>
+#include "Firebase_Arduino_WiFiNINA.h"
+#include <WiFiSSLClient.h>
+#include <ArduinoHttpClient.h>
+#include "arduino_secrets.h"
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+
+// WiFi credentials
+#define WIFI_SSID SECRET_SSID
+#define WIFI_PASSWORD SECRET_PASS
+
+// Firebase credentials
+#define FIREBASE_HOST SECRET_HOST
+#define FIREBASE_AUTH SECRET_AUTH
+#define DHTPIN 2  
+#define DHTPOW 11 
+#define DHTTYPE DHT22
+const int sensorPin = 7; 
+DHT dht(DHTPIN, DHTTYPE);
+FirebaseData firebaseData;
+char server[] = "www.timeapi.io";
+int port = 443;
+String path1 = "/api/Time/current/zone?timeZone=UTC";
+bool lastState = HIGH;
+WiFiSSLClient wifi;
+HttpClient client = HttpClient(wifi, server, port);
+LiquidCrystal_I2C lcd(0x27,20,4);  // 0 znači I2C modul (sa PCF8574)
+
+
 
 /**
  * @brief Funkcija koja se izvodi na početku i inicijalizira WiFi, Firebase, DHT senzor i LCD ekran.
@@ -12,20 +44,25 @@
  * Ova funkcija se izvodi samo jednom prilikom pokretanja i postavlja sve potrebne inicijalizacije, uključujući serijsku komunikaciju,
  * WiFi, Firebase, DHT senzor i LCD ekran.
  */
+
+
+
 void setup()
 {
   Serial.begin(115200);
-  while (!Serial)
-    ;
+  while (!Serial);
 
   pinMode(sensorPin, INPUT);
 
   connectWiFiAndFirebase();
   dht.begin();
+lcd.init();
+lcd.begin(16, 2);
+lcd.setBacklight(1); // Uključi pozadinsko osvjetljenje
+lcd.print("Inicijalizacija...");
+delay(2000); // Kratko prikaži poruku
+lcd.clear();
 
-  lcd.begin(16, 2);
-  lcd.setBacklight(1); // Uključi pozadinsko osvjetljenje
-  lcd.print("Inicijalizacija...");
 }
 
 /**
@@ -48,15 +85,16 @@ void loop()
 
   Serial.print("Broj mjehurića: ");
   Serial.println(count);
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Temp: ");
-  lcd.print(temperature);
-  lcd.print(" C");
+ lcd.clear();
+lcd.setCursor(0, 0);
+lcd.print("Temp: ");
+lcd.print(temperature);
+lcd.print(" C");
 
-  lcd.setCursor(0, 1);
-  lcd.print("Bubbles: ");
-  lcd.print(count);
+lcd.setCursor(0, 1);
+lcd.print("Mjehurici: ");
+lcd.print(count);
+
   upis_u_bazu(count, temperature);
 
   // Isključivanje WiFi-a radi uštede energije (opcionalno)
@@ -166,7 +204,7 @@ void upis_u_bazu(int mjeh, float temp)
 /**
  * @brief Funkcija za dohvat trenutnog vremena sa HTTP API-ja.
  *
- * Povezuje se na API "timeapi.io" i dohvaća UTC vremensku oznaku u formatu ISO 8601.
+ * Povezuje se na API "timeapi.io" i dohvaća UTC vremensku oznaku u formatu ISO 8601. Ako API ne radi, vrijeme i datum se računa od trenutačnog datuma + milisekunde koje se broj ood početka rada
  *
  * @return Trenutno vrijeme u formatu "yyyy-MM-ddTHH:mm:ss".
  */
@@ -181,28 +219,48 @@ String getTimeFromHTTP()
 
   if (statusCode == 200)
   {
-    Serial.println("Dohvaćeni podaci:");
-    Serial.println(response);
-
     int index = response.indexOf("\"dateTime\":\"");
     if (index >= 0)
     {
       int start = index + 12;
       int end = response.indexOf("\"", start);
       datetime = response.substring(start, end);
-
-      Serial.print("Trenutno UTC vrijeme: ");
-      String formatted = convertToFormattedTime(datetime);
-      Serial.println(formatted);
+      return datetime; // Vraća pravi datum ako API radi
     }
   }
-  else
+
+  // Ako API ne radi, generiraj lokalno vrijeme
+  Serial.println("API neuspješan. Generiram lokalni timestamp...");
+
+  unsigned long ms = millis();
+  unsigned long totalSeconds = ms / 1000;
+  int seconds = totalSeconds % 60;
+  int minutes = (totalSeconds / 60) % 60;
+  int hours = (totalSeconds / 3600) % 24;
+  int daysSinceStart = totalSeconds / 86400;
+
+  // Početni datum - 30.4.2025.
+  int day = 30 + daysSinceStart;
+  int month = 4;
+  int year = 2025;
+
+  // Jednostavna simulacija kalendara (pretpostavljamo 31 dan po mjesecu)
+  while (day > 31)
   {
-    Serial.print("Neuspješan zahtjev, status kod: ");
-    Serial.println(statusCode);
+    day -= 31;
+    month++;
+    if (month > 12)
+    {
+      month = 1;
+      year++;
+    }
   }
-  return datetime;
+
+  char buffer[25];
+  sprintf(buffer, "%04d-%02d-%02dT%02d:%02d:%02d", year, month, day, hours, minutes, seconds);
+  return String(buffer);
 }
+
 
 /**
  * @brief Funkcija koja konvertira UTC vrijeme u formatirani string.
