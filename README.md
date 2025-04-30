@@ -25,8 +25,8 @@ Za ostvarenje projekta planirano je korištenje mikroupravljača Arduino MKR1010
   **16x2 LCD display**  
 
 ## Način korištenja
- Senzor za mjerenje temperature tekućine i foto interrupt umoče se u tekućinu, photo interrupt senzor je zaštičen, on ima dvije cjevčice, jedna je IR odašiljač, a druga senzor za primanje IR zraka. Između te dvije cjevčice je stavljena jedna prozirna kroz koju ide tekućina i kroz nju se promatraju mjehurići koji izlaze van.
- Nakon određenog vremena na LCD ekranu pojavit će se temperatura tekućine i broj mjehurića u 10 sekundi, također će sve to detaljnije biti vidljivo i na mobilnoj aplikaciji gdje će biti prikazan graf i bit će točno vidljiva dinamika odnsono brzina fermentacije.
+ Photo interrupt senzor  ima dvije cjevčice, jedna je IR odašiljač, a druga senzor za primanje IR zraka. Između te dvije cjevčice je stavljena jedna prozirna kroz koju ide tekućina i kroz nju se promatraju mjehurići koji izlaze van.
+ Senzor za mjerenje temperature mjeri vanjsku temperaturu prije brojenja mjehurića. Nakon određenog vremena na LCD ekranu pojavit će se temperatura tekućine i broj mjehurića u 10 sekundi, također će sve to detaljnije biti vidljivo i na mobilnoj aplikaciji gdje će biti prikazan graf i bit će točno vidljiva dinamika odnsono brzina fermentacije.
 ## Funkcijski zahtjevi
 
 FRID | Funkcionalnost | Opis
