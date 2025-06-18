@@ -16,7 +16,8 @@ void main() async {
       child: MyApp(themeNotifier: themeNotifier
       ),
     ),
-  );}
+  );
+}
 
 
 class MyApp extends StatelessWidget {
@@ -100,11 +101,9 @@ final ThemeData lightTheme = ThemeData(
     primary: Color(0xFFEB9100),
     secondary: Color(0xFFFFD262),
     surface: Color(0xFFF9F3DF),
-    background: Color(0xFFF4E8C1),
     onPrimary: Color(0xFFF4E8C1),
     onSecondary: Color(0x802B1A00),
     onSurface: Color(0x592B1A00),
-    onBackground: Color(0xFF2B1A00),
   ),
 );
 
@@ -147,11 +146,9 @@ final ThemeData darkTheme = ThemeData(
     primary: Color(0xFFD2C084),
     secondary: Color(0xFFFFD262),
     surface: Color(0xFF4C3515),
-    background: Color(0xFF1A1200),
     onPrimary: Colors.black,
     onSecondary: Colors.black,
     onSurface: Color(0x80E0D8B8),
-    onBackground: Color(0xFFE0D8B8),
   ),
 );
 

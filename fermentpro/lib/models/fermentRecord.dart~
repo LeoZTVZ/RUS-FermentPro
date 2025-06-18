@@ -20,8 +20,7 @@ class FermentRecordModel {
       id: id,
       dateTime: json['dateTime'] ?? '',
       deviceId: json['deviceId'] ?? '',
-      photoSensor: json['photoSensor'] is int ? json['photoSensor']
-          : int.tryParse(json['photoSensor'].toString()) ?? 0,
+      photoSensor: json['photoSensor'] is int ? json['photoSensor'] : int.tryParse(json['photoSensor'].toString()) ?? 0,
       bottleVolume: (json['bottleVolume'] is int)
           ? (json['bottleVolume'] as int).toDouble()
           : (json['bottleVolume'] is double)

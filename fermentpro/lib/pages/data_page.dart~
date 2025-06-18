@@ -20,7 +20,7 @@ class _DataPageState extends State<DataPage> {
   String? sortBy; // 'date', 'deviceId', 'type'
   bool ascending = true;
 
-  DateTime? selectedDate;
+  Set<DateTime> selectedDates = {};
   String? selectedDeviceId;
   String? selectedType;
 
@@ -35,14 +35,14 @@ class _DataPageState extends State<DataPage> {
       context: context,
       isScrollControlled: true,
       builder: (_) => FilterDialog(
-        selectedDate: selectedDate,
+        selectedDates: selectedDates,
         selectedDeviceId: selectedDeviceId,
         selectedType: selectedType,
         sortBy: sortBy,
         ascending: ascending,
         allRecords: widget.records,
         onApply: ({
-          DateTime? date,
+          List<DateTime>? dates,
           String? deviceId,
           String? type,
           String? sortBy,
@@ -52,24 +52,68 @@ class _DataPageState extends State<DataPage> {
         }) {
           setState(() {
             if (clear) {
-              selectedDate = null;
+              selectedDates = {};
               selectedDeviceId = null;
               selectedType = null;
               this.sortBy = null;
               this.ascending = true;
               this.filteredRecords = List.from(widget.records);
             } else {
-              selectedDate = date;
+              selectedDates = dates?.toSet() ?? {};
               selectedDeviceId = deviceId;
               selectedType = type;
               this.sortBy = sortBy;
               this.ascending = ascending;
-              this.filteredRecords = filteredRecords ?? List.from(widget.records);
+
+              // Do filtering here
+              final dateSet = selectedDates.map((d) => DateTime(d.year, d.month, d.day)).toSet();
+              List<FermentRecordModel> results = widget.records.where((record) {
+                final recordDate = _parseDate(record.dateTime);
+                if (recordDate == null || !dateSet.any((d) => _isSameDay(d, recordDate))) {
+                  return false;
+                }
+                if (deviceId != null && record.deviceId != deviceId) {
+                  return false;
+                }
+                if (type != null && record.type != type) {
+                  return false;
+                }
+                return true;
+              }).toList();
+
+              // Optional: sort
+              if (sortBy != null) {
+                results.sort((a, b) {
+                  int cmp = 0;
+                  if (sortBy == 'date') {
+                    cmp = _parseDate(a.dateTime)?.compareTo(_parseDate(b.dateTime) ?? DateTime(0)) ?? 0;
+                  } else if (sortBy == 'deviceId') {
+                    cmp = a.deviceId.compareTo(b.deviceId);
+                  } else if (sortBy == 'type') {
+                    cmp = a.type.compareTo(b.type);
+                  }
+                  return ascending ? cmp : -cmp;
+                });
+              }
+
+              this.filteredRecords = results;
             }
           });
         },
       ),
     );
+  }
+  bool _isSameDay(DateTime a, DateTime b) {
+    return a.year == b.year && a.month == b.month && a.day == b.day;
+  }
+
+  DateTime? _parseDate(String raw) {
+    try {
+      final parsed = DateFormat("HH:mm:ss d.M.yyyy.").parse(raw);
+      return DateTime(parsed.year, parsed.month, parsed.day);
+    } catch (_) {
+      return null;
+    }
   }
 
 

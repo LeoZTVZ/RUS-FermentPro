@@ -1,9 +1,8 @@
 import 'package:FermentPro/components/circle_frosted_glass.dart';
 import 'package:FermentPro/components/frosted_glass.dart';
-import 'package:FermentPro/components/sunicon_widget.dart';
+import 'package:FermentPro/components/time_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
-import 'package:FermentPro/components/thermometer_widget.dart';
+import 'package:FermentPro/components/bubbles_widget.dart';
 
 import '../models/fermentRecord.dart'; // Importing the separated thermometer widget
 
@@ -33,7 +32,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       vsync: this,
     );
 
-    _fillAnimation = Tween<double>(begin: 0.0, end: latestRecord!.temperature).animate(
+    _fillAnimation = Tween<double>(begin: 0.0, end: latestRecord!.photoSensor.toDouble()).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
@@ -74,7 +73,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 enableAnimatedBorder: false,
                 gradientColors: [
                   Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.background,
+                  Theme.of(context).colorScheme.surface,
                   Theme.of(context).colorScheme.secondary,
                   Theme.of(context).colorScheme.surface,
                 ],
@@ -89,17 +88,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       innerPadding: const EdgeInsets.all(36),
                       gradientColors: [
                         Theme.of(context).colorScheme.primary,
-                        Theme.of(context).colorScheme.background,
+                        Theme.of(context).colorScheme.surface,
                         Theme.of(context).colorScheme.secondary,
                         Theme.of(context).colorScheme.inversePrimary,
                       ],
                       theChild: AnimatedBuilder(
                         animation: _fillAnimation,
                         builder: (context, child) {
-                          return ThermometerIconFill(
-                            temperature: _fillAnimation.value,
-                            minTemp: 0,
-                            maxTemp: 100,
+                          return BubblesIconFill(
+                            co2value: _fillAnimation.value,
+                            minValue: 0,
+                            maxValue: 10,
                           );
                         },
                       ),
@@ -123,15 +122,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       innerPadding: const EdgeInsets.all(36),
                       gradientColors: [
                         Theme.of(context).colorScheme.primary,
-                        Theme.of(context).colorScheme.background,
+                        Theme.of(context).colorScheme.surface,
                         Theme.of(context).colorScheme.secondary,
                         Theme.of(context).colorScheme.inversePrimary,
                       ],
                       theChild: AnimatedBuilder(
                         animation: _fillAnimation,
                         builder: (context, child) {
-                          return SunIcon(
-                            co2Value: latestRecord!.photoSensor.toDouble(), // Pass your animated CO₂ value here
+                          return TimeIcon(
+                            latestTime: latestRecord!.dateTime, // Pass your animated CO₂ value here
                           );
                         },
                       ),

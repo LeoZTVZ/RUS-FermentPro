@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ThermometerIconFill extends StatelessWidget {
-  final double temperature;
-  final double minTemp;
-  final double maxTemp;
 
-  const ThermometerIconFill({
+class BubblesIconFill extends StatelessWidget {
+  final double co2value;
+  final double minValue;
+  final double maxValue;
+
+  const BubblesIconFill({
     super.key,
-    required this.temperature,
-    this.minTemp = 0,
-    this.maxTemp = 100,
+    required this.co2value,
+    this.minValue = 0,
+    this.maxValue = 10,
   });
 
   @override
   Widget build(BuildContext context) {
     final double fillPercent =
-    ((temperature - minTemp) / (maxTemp - minTemp)).clamp(0.0, 1.0);
+    ((co2value - minValue) / (maxValue - minValue)).clamp(0.0, 1.0);
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -33,12 +34,12 @@ class ThermometerIconFill extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Icon(
-                    Icons.device_thermostat_rounded,
+                    Icons.bubble_chart_rounded,
                     size: iconHeight,
                     color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.3),
                   ),
                   ClipPath(
-                    clipper: _ThermometerFillClipper(fillPercent),
+                    clipper: _BubblesFillClipper(fillPercent),
                     child: ShaderMask(
                       shaderCallback: (Rect bounds) {
                         return const LinearGradient(
@@ -49,7 +50,7 @@ class ThermometerIconFill extends StatelessWidget {
                       },
                       blendMode: BlendMode.srcATop,
                       child: Icon(
-                        Icons.thermostat,
+                        Icons.bubble_chart_rounded,
                         size: iconHeight,
                         color: Colors.white,
                       ),
@@ -64,7 +65,7 @@ class ThermometerIconFill extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  '${temperature.toStringAsFixed(1)}°C',
+                  '${co2value.toStringAsFixed(1)}°C',
                   style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w600,
@@ -79,10 +80,10 @@ class ThermometerIconFill extends StatelessWidget {
   }
 }
 
-class _ThermometerFillClipper extends CustomClipper<Path> {
+class _BubblesFillClipper extends CustomClipper<Path> {
   final double fillPercent;
 
-  _ThermometerFillClipper(this.fillPercent);
+  _BubblesFillClipper(this.fillPercent);
 
   @override
   Path getClip(Size size) {
@@ -92,7 +93,7 @@ class _ThermometerFillClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(covariant _ThermometerFillClipper oldClipper) {
+  bool shouldReclip(covariant _BubblesFillClipper oldClipper) {
     return oldClipper.fillPercent != fillPercent;
   }
 }

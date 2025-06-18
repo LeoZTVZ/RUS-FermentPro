@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:FermentPro/pages/data_page.dart';
 import 'package:FermentPro/pages/home_page.dart';
+import 'package:intl/intl.dart';
 
 import '../main.dart';
 import '../models/fermentRecord.dart';
@@ -21,9 +22,11 @@ class _DefaultScreenState extends ConsumerState<DefaultScreen> { // <--- Consume
   int _selectedIndex = 0;
   int _previousIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
     final fermentRecords = ref.watch(fermentRecordProvider);
+    debugPrint(fermentRecords.toString());
 
     // Slide direction based on destination page
     final slideFrom = _selectedIndex == 0
@@ -33,9 +36,20 @@ class _DefaultScreenState extends ConsumerState<DefaultScreen> { // <--- Consume
     return Scaffold(
       body: fermentRecords.when(
         data: (records) {
+          final dateFormat = DateFormat("HH:mm:ss d.M.yyyy.");
 
-         final FermentRecordModel? latestRecord = records.isNotEmpty ? records.last : null;
+          final List<FermentRecordModel> sortedRecords = List.from(records);
 
+
+
+// Sort by parsed DateTime in descending order
+          sortedRecords.sort((a, b) {
+            final dateA = dateFormat.parse(a.dateTime);
+            final dateB = dateFormat.parse(b.dateTime);
+            return dateB.compareTo(dateA); // descending
+          });
+
+          final FermentRecordModel? latestRecord = sortedRecords.isNotEmpty ? sortedRecords.first : null;
           final pages = [
             HomePage(latestRecord: latestRecord),
             DataPage(records: records),

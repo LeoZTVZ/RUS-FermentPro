@@ -13,7 +13,7 @@ class LineChartWidget extends StatelessWidget {
         .where((r) => r.dateTime != null)
         .toList()
       ..sort((a, b) =>
-          parseDateTime(a.dateTime!).compareTo(parseDateTime(b.dateTime!)));
+          parseDateTime(a.dateTime).compareTo(parseDateTime(b.dateTime)));
 
     if (sortedRecords.isEmpty) {
       return const Center(child: Text('No data'));
@@ -25,19 +25,15 @@ class LineChartWidget extends StatelessWidget {
 
     for (int i = 0; i < sortedRecords.length; i++) {
       final record = sortedRecords[i];
-      final time = parseDateTime(record.dateTime!);
+      final time = parseDateTime(record.dateTime);
       final x = i.toDouble(); // Assign simple index-based x-axis
 
-      if (record.temperature != null) {
-        temperatureSpots.add(FlSpot(x, record.temperature));
-        xValueToTime[x] = time;
-      }
-
-      if (record.photoSensor != null) {
-        photoSensorSpots.add(FlSpot(x, record.photoSensor!.toDouble()));
-        xValueToTime[x] = time;
-      }
-    }
+      temperatureSpots.add(FlSpot(x, record.bottleVolume));
+      xValueToTime[x] = time;
+    
+      photoSensorSpots.add(FlSpot(x, record.photoSensor.toDouble()));
+      xValueToTime[x] = time;
+        }
 
     final allSpots = [...temperatureSpots, ...photoSensorSpots];
     final maxX = allSpots.map((e) => e.x).fold<double>(0, (a, b) => a > b ? a : b);
